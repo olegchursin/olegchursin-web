@@ -15,7 +15,6 @@ import {
   FaWrench
 } from 'react-icons/fa';
 import { FC, useState } from 'react';
-import { useHasMounted } from '../utils/hooks';
 
 const sidebarItems = [
   { title: 'Home', icon: <FaHome />, url: '/' },
@@ -39,15 +38,7 @@ const sidebarItems = [
 ];
 
 const Sidebar: FC = () => {
-  if (!useHasMounted) {
-    return null;
-  }
-
   const [open, setOpen] = useState(true);
-
-  const openSidebar = () => {
-    console.log('open');
-  };
 
   return (
     <aside
