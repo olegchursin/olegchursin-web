@@ -17,6 +17,7 @@ import {
 import { FC } from 'react';
 import { uiAtom } from '../utils/store';
 import { useAtom } from 'jotai';
+import { useRouter } from 'next/router';
 
 const sidebarLinks = [
   { title: 'Home', icon: <FaHome />, url: '/' },
@@ -25,7 +26,7 @@ const sidebarLinks = [
   { title: 'Me', sectionTitle: true },
   { title: 'Bookmarks', icon: <FaBookmark />, url: '/bookmarks' },
   { title: 'Uses ', icon: <FaWrench />, url: '/uses' },
-  { title: 'Photography', icon: <FaCamera /> },
+  { title: 'Photography', icon: <FaCamera />, url: '/photography' },
   { title: 'Online', sectionTitle: true },
   { title: 'Twitter ', icon: <FaTwitter />, isExternal: true },
   { title: 'GitHub', icon: <FaGithub />, isExternal: true },
@@ -41,42 +42,60 @@ const sidebarLinks = [
 
 const SidebarLinks: FC = () => {
   const [{ sidebarOpen }] = useAtom(uiAtom);
+  const router = useRouter();
+
+  const listItem = item => {
+    return (
+      <li
+        className={clsx(
+          'mt-2 flex items-center justify-between p-2',
+          'rounded-lg text-base font-normal text-gray-900 dark:text-white',
+          {
+            'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700':
+              !item.sectionTitle
+          },
+          { 'mt-9': item.sectionTitle },
+          {
+            'bg-gray-200 dark:bg-gray-700': router.asPath === item.url
+          }
+        )}
+      >
+        <>
+          <div className="flex items-center">
+            {item.icon && <span>{item.icon}</span>}
+            <span
+              className={clsx('origin-left duration-200', {
+                hidden: !sidebarOpen,
+                'ml-4': item.icon
+              })}
+            >
+              {item.title}
+            </span>
+          </div>
+          {item.isExternal && sidebarOpen ? <FaExternalLinkAlt /> : null}
+        </>
+      </li>
+    );
+  };
 
   return (
     <div className="overflow-scroll pb-8">
       <ul className="pt-6">
-        {sidebarLinks.map((item, index) => (
-          <li
-            key={index}
-            className={clsx(
-              'mt-2 flex items-center justify-between p-2',
-              'cursor-pointer rounded-lg text-base font-normal text-gray-900',
-              'hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700',
-              { 'mt-9': item.sectionTitle }
-            )}
-          >
-            <Link href={item.url ?? '/'}>
-              <>
-                <div className="flex items-center">
-                  {item.icon && <span>{item.icon}</span>}
-                  <span
-                    className={clsx('origin-left duration-200', {
-                      hidden: !sidebarOpen,
-                      'ml-4': item.icon
-                    })}
-                  >
-                    {item.title}
-                  </span>
-                </div>
-                {item.isExternal && sidebarOpen ? (
-                  <span>
-                    <FaExternalLinkAlt />
-                  </span>
-                ) : null}
-              </>
-            </Link>
-          </li>
-        ))}
+        {sidebarLinks.map((item, index) => {
+          if (item.isExternal) {
+            return (
+              <a key={index} href={item.url} target="_blank">
+                {listItem(item)}
+              </a>
+            );
+          } else {
+            return (
+              <Link key={index} href={item.url ?? {}}>
+                {listItem(item)}
+              </Link>
+            );
+          }
+        })}
       </ul>
     </div>
   );
