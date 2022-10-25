@@ -14,8 +14,12 @@ import {
   FaUnsplash,
   FaWrench
 } from 'react-icons/fa';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import Logo from './logo';
+
+import { useAtom } from 'jotai';
+import { uiAtom } from '../utils/store';
+import { clsx } from 'clsx';
 
 const sidebarItems = [
   { title: 'Home', icon: <FaHome />, url: '/' },
@@ -39,60 +43,79 @@ const sidebarItems = [
 ];
 
 const Sidebar: FC = () => {
-  const [open, setOpen] = useState(true);
+  const [{ sidebarOpen }, setOpen] = useAtom(uiAtom);
+
+  const toggleSidebarOpen = () => {
+    setOpen({ sidebarOpen: !sidebarOpen });
+  };
 
   return (
     <aside
       aria-label="Sidebar"
-      className={`${
-        open ? 'w-72 ' : 'w-20 '
-      } relative h-screen bg-gray-50 p-5 pt-8 duration-300 dark:bg-gray-800 dark:text-white`}
+      className={clsx(
+        'relative h-screen w-72 bg-gray-50 duration-300',
+        'dark:bg-gray-800 dark:text-white',
+        { 'w-20': !sidebarOpen }
+      )}
     >
-      <div className="flex h-full flex-col justify-between">
-        <div className="overflow-scroll pb-8">
+      <div>
+        <div
+          className={clsx(
+            'border-b-[.5px] border-slate-400 p-4',
+            'dark:border-slate-700',
+            { 'pl-6': sidebarOpen }
+          )}
+        >
           <Logo />
-          <ul className="pt-6">
-            {sidebarItems.map((item, index) => (
-              <li
-                key={index}
-                className={`flex items-center justify-between rounded-lg p-2 text-base font-normal text-gray-900 dark:text-white 
-        ${
-          item.sectionTitle
-            ? 'mt-9'
-            : 'mt-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700'
-        }`}
-              >
-                <Link href={item.url ?? '/'}>
-                  <>
-                    <div className="flex items-center">
-                      {item.icon && <span>{item.icon}</span>}
-                      <span
-                        className={`${!open && 'hidden'} ${
-                          item.icon && 'ml-4'
-                        } origin-left duration-200`}
-                      >
-                        {item.title}
-                      </span>
-                    </div>
-                    {item.isExternal && open ? (
-                      <span>
-                        <FaExternalLinkAlt />
-                      </span>
-                    ) : null}
-                  </>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
 
-        <div className="p-4 dark:bg-gray-800">
-          <FaChevronLeft
-            className={`absolute right-7 bottom-4 h-6 w-6 cursor-pointer text-gray-100  ${
-              !open && 'rotate-180'
-            }`}
-            onClick={() => setOpen(!open)}
-          />
+        <div className="flex h-full flex-col justify-between px-6 pt-0">
+          <div className="overflow-scroll pb-8">
+            <ul className="pt-6">
+              {sidebarItems.map((item, index) => (
+                <li
+                  key={index}
+                  className={clsx(
+                    'mt-2 flex items-center justify-between p-2',
+                    'cursor-pointer rounded-lg text-base font-normal text-gray-900',
+                    'hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700',
+                    { 'mt-9': item.sectionTitle }
+                  )}
+                >
+                  <Link href={item.url ?? '/'}>
+                    <>
+                      <div className="flex items-center">
+                        {item.icon && <span>{item.icon}</span>}
+                        <span
+                          className={clsx('origin-left duration-200', {
+                            hidden: !sidebarOpen,
+                            'ml-4': item.icon
+                          })}
+                        >
+                          {item.title}
+                        </span>
+                      </div>
+                      {item.isExternal && sidebarOpen ? (
+                        <span>
+                          <FaExternalLinkAlt />
+                        </span>
+                      ) : null}
+                    </>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-4 dark:bg-gray-800">
+            <FaChevronLeft
+              className={clsx(
+                'absolute right-7 bottom-4 h-6 w-6 cursor-pointer text-gray-100',
+                { 'rotate-180': !sidebarOpen }
+              )}
+              onClick={toggleSidebarOpen}
+            />
+          </div>
         </div>
       </div>
     </aside>
