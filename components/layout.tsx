@@ -1,5 +1,6 @@
-import Sidebar from './sidebar';
 import Head from 'next/head';
+import Navbar from './navbar';
+import Sidebar from './sidebar';
 
 function Layout({ children }) {
   return (
@@ -10,7 +11,10 @@ function Layout({ children }) {
         <meta property="og:title" content="Oleg Chursin" key="title" />
       </Head>
       <Sidebar />
-      <main className="h-screen flex-1 p-6">{children}</main>
+      <main className="h-screen flex-1 bg-gray-100 p-6 dark:bg-gray-900 dark:text-white">
+        <Navbar />
+        {children}
+      </main>
     </div>
   );
 }
