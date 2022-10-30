@@ -13,7 +13,7 @@ const SidebarBody: FC = () => {
   };
 
   return (
-    <div className="flex h-full flex-col justify-between px-6 pt-0">
+    <div className="h-100 flex flex-col justify-between px-6 pt-0">
       <SidebarLinks />
 
       <div className="p-4 dark:bg-gray-800">
