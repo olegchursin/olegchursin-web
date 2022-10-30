@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Navbar from './navbar';
-import Sidebar from './sidebar';
+import Sidebar from './sidebar/sidebar';
+import { FC, PropsWithChildren } from 'react';
 
-function Layout({ children }) {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="flex">
       <Head>
@@ -17,6 +18,6 @@ function Layout({ children }) {
       </main>
     </div>
   );
-}
+};
 
 export default Layout;

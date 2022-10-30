@@ -2,7 +2,7 @@ import SidebarBody from './sidebar-body';
 import SidebarHeader from './sidebar-header';
 import { clsx } from 'clsx';
 import { FC } from 'react';
-import { uiAtom } from '../utils/store';
+import { uiAtom } from '../../utils/store';
 import { useAtom } from 'jotai';
 
 const Sidebar: FC = () => {

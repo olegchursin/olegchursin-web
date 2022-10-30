@@ -15,7 +15,7 @@ import {
   FaWrench
 } from 'react-icons/fa';
 import { FC } from 'react';
-import { uiAtom } from '../utils/store';
+import { uiAtom } from '../../utils/store';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 

@@ -2,7 +2,7 @@ import SidebarLinks from './sidebar-links';
 import { clsx } from 'clsx';
 import { FaChevronLeft } from 'react-icons/fa';
 import { FC } from 'react';
-import { uiAtom } from '../utils/store';
+import { uiAtom } from '../../utils/store';
 import { useAtom } from 'jotai';
 
 const SidebarBody: FC = () => {

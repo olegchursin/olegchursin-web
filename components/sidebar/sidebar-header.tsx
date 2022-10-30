@@ -1,7 +1,7 @@
-import Logo from './logo';
+import Logo from '../logo';
 import React from 'react';
 import { clsx } from 'clsx';
-import { uiAtom } from '../utils/store';
+import { uiAtom } from '../../utils/store';
 import { useAtom } from 'jotai';
 
 const SidebarHeader = () => {
