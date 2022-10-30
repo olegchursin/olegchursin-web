@@ -51,12 +51,12 @@ const SidebarLinks: FC = () => {
           'mt-2 flex items-center justify-between p-2',
           'rounded-lg text-base font-normal text-gray-900 dark:text-white',
           {
-            'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700':
+            'cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700':
               !item.sectionTitle
           },
           { 'mt-9': item.sectionTitle },
           {
-            'bg-gray-200 dark:bg-gray-700': router.asPath === item.url
+            'bg-gray-300 dark:bg-gray-700': router.asPath === item.url
           }
         )}
       >

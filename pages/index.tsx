@@ -3,7 +3,7 @@ import TechTags from '../components/tech-tags';
 
 const Home: NextPage<any> = () => {
   return (
-    <div className="container max-w-3xl py-6 px-6">
+    <div className="container max-w-3xl py-6">
       <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white md:text-4xl lg:text-5xl">
         <span className="dark:bg-gradient-to-r dark:from-sky-400 dark:to-blue-600 dark:bg-clip-text dark:text-transparent">
           About
@@ -38,7 +38,7 @@ const Home: NextPage<any> = () => {
       </p>
       <div className="mt-16">
         <p className="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
-          Tech tags:
+          Tech stack tags:
         </p>
         <TechTags />
       </div>

@@ -12,7 +12,7 @@ const Sidebar: FC = () => {
     <aside
       aria-label="Sidebar"
       className={clsx(
-        'relative h-screen w-72 bg-gray-50 duration-300',
+        'relative h-screen w-72 bg-slate-200 duration-300',
         'dark:bg-gray-800 dark:text-white',
         { 'w-20': !sidebarOpen }
       )}
