@@ -1,9 +1,9 @@
 import Article from '../components/article';
-import TechTags from '../components/tech-tags';
-import type { NextPage } from 'next';
-import Online from '../components/online';
-import Work from '../components/career';
 import Image from 'next/image';
+import Online from '../components/online';
+import TechTags from '../components/tech-tags';
+import Work from '../components/career';
+import type { NextPage } from 'next';
 
 const Home: NextPage<any> = () => {
   return (
