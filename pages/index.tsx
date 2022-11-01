@@ -4,14 +4,13 @@ import Image from 'next/image';
 import Online from '../components/online';
 import TechTags from '../components/tech-tags';
 import type { NextPage } from 'next';
+import GradientText from '../components/gradient-text';
 
 const Home: NextPage<any> = () => {
   return (
     <Article>
       <h1>
-        <span className="dark:bg-gradient-to-r dark:from-sky-400 dark:to-blue-600 dark:bg-clip-text dark:text-transparent">
-          About
-        </span>
+        <GradientText text={'About'} />
       </h1>
 
       <section id="summary">
