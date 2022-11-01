@@ -43,7 +43,7 @@ const Home: NextPage<any> = () => {
         </p>
       </section>
 
-      <section>
+      <section id="work">
         <h4>Work</h4>
         <Work />
       </section>
@@ -53,12 +53,12 @@ const Home: NextPage<any> = () => {
         <TechTags />
       </section>
 
-      <section>
+      <section id="online">
         <h4>Online</h4>
         <Online />
       </section>
 
-      <section>
+      <section id="offline">
         <h4>Offline</h4>
         <Image
           className="rounded-lg grayscale duration-300 hover:grayscale-0"
