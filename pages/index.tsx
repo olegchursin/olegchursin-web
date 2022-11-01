@@ -2,7 +2,7 @@ import Article from '../components/article';
 import TechTags from '../components/tech-tags';
 import type { NextPage } from 'next';
 import Online from '../components/online';
-import Work from '../components/work';
+import Work from '../components/career';
 import Image from 'next/image';
 
 const Home: NextPage<any> = () => {
@@ -61,7 +61,7 @@ const Home: NextPage<any> = () => {
       <section>
         <h4>Offline</h4>
         <Image
-          className="rounded-lg"
+          className="rounded-lg grayscale duration-300 hover:grayscale-0"
           src="https://ik.imagekit.io/olegchursin/park-slope_-pY7uwDVs.png?tr=w-800,h-500"
           alt="Park Slope - Brooklyn"
           width={800}

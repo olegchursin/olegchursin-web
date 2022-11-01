@@ -1,10 +1,13 @@
 import type { NextPage } from 'next';
+import Article from '../components/article';
+import Career from '../components/career';
 
 const Work: NextPage<any> = () => {
   return (
-    <div>
-      <h1 className="mt-2 text-3xl font-bold">Work</h1>
-    </div>
+    <Article>
+      <h1>The Path</h1>
+      <Career />
+    </Article>
   );
 };
 

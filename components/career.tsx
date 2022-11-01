@@ -1,7 +1,7 @@
 import React from 'react';
-import WorkLink, { WorkLinkProps } from './work-link';
+import CareerLink, { CareerLinkProps } from './career-link';
 
-const workLinks: WorkLinkProps[] = [
+const careerLinks: CareerLinkProps[] = [
   {
     place: 'Aon Cyber Solutions',
     url: 'https://www.aon.com/cyber-solutions/',
@@ -28,14 +28,14 @@ const workLinks: WorkLinkProps[] = [
   }
 ];
 
-const Work = () => {
+const Career = () => {
   return (
     <div className="flex flex-col gap-4 lg:gap-0">
-      {workLinks.map(mediaLink => {
-        return <WorkLink key={mediaLink.title} {...mediaLink} />;
+      {careerLinks.map(link => {
+        return <CareerLink key={link.title} {...link} />;
       })}
     </div>
   );
 };
 
-export default Work;
+export default Career;

@@ -1,13 +1,14 @@
 import type { NextPage } from 'next';
+import Article from '../components/article';
 import { getPosts } from '../utils/posts';
 
 const Writing: NextPage<any> = ({ posts }) => {
   return (
-    <div>
-      <h1 className="mt-2 text-3xl font-bold">Latest Posts</h1>
+    <Article>
+      <h1>Latest Posts</h1>
 
       {posts?.map(post => console.log('post', post))}
-    </div>
+    </Article>
   );
 };
 

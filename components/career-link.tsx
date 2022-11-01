@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
-export interface WorkLinkProps {
+export interface CareerLinkProps {
   readonly title: string;
   readonly url: string;
   readonly place: string;
   readonly year: string;
 }
 
-const WorkLink: FC<WorkLinkProps> = ({ title, url, place, year }) => {
+const CareerLink: FC<CareerLinkProps> = ({ title, url, place, year }) => {
   return (
     <div className="lg:flex lg:justify-between lg:gap-4">
       <a href={url} target="_blank" rel="noopener noreferrer">
@@ -24,4 +24,4 @@ const WorkLink: FC<WorkLinkProps> = ({ title, url, place, year }) => {
   );
 };
 
-export default WorkLink;
+export default CareerLink;

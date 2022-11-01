@@ -1,4 +1,12 @@
 import Link from 'next/link';
+import {
+  BOOKMARKS_PATH,
+  HOME_PATH,
+  PHOTOGRAPHY_PATH,
+  USES_PATH,
+  WORK_PATH,
+  WRITING_PATH
+} from '../../utils/paths';
 import { clsx } from 'clsx';
 import {
   FaBookmark,
@@ -9,6 +17,7 @@ import {
   FaGithub,
   FaHome,
   FaLaptopCode,
+  FaLinkedin,
   FaMedium,
   FaTwitter,
   FaUnsplash,
@@ -20,14 +29,15 @@ import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 
 const sidebarLinks = [
-  { title: 'Home', icon: <FaHome />, url: '/' },
-  { title: 'Work', icon: <FaLaptopCode />, url: '/work' },
-  { title: 'Writing', icon: <FaFileAlt />, url: '/writing' },
+  { title: 'Home', icon: <FaHome />, url: HOME_PATH },
+  { title: 'Work', icon: <FaLaptopCode />, url: WORK_PATH },
+  { title: 'Writing', icon: <FaFileAlt />, url: WRITING_PATH },
   { title: 'Me', sectionTitle: true },
-  { title: 'Bookmarks', icon: <FaBookmark />, url: '/bookmarks' },
-  { title: 'Uses ', icon: <FaWrench />, url: '/uses' },
-  { title: 'Photography', icon: <FaCamera />, url: '/photography' },
+  { title: 'Bookmarks', icon: <FaBookmark />, url: BOOKMARKS_PATH },
+  { title: 'Uses ', icon: <FaWrench />, url: USES_PATH },
+  { title: 'Photography', icon: <FaCamera />, url: PHOTOGRAPHY_PATH },
   { title: 'Online', sectionTitle: true },
+  { title: 'LinkedIn ', icon: <FaLinkedin />, isExternal: true },
   { title: 'Twitter ', icon: <FaTwitter />, isExternal: true },
   { title: 'GitHub', icon: <FaGithub />, isExternal: true },
   { title: 'Dev.to', icon: <FaDev />, isExternal: true },
