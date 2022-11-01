@@ -3,6 +3,11 @@ import MediaLink, { MediaLinkProps } from './media-link';
 
 const mediaLinks: MediaLinkProps[] = [
   {
+    title: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/olegchursin/',
+    ctaText: 'Connect'
+  },
+  {
     title: 'Twitter',
     url: 'https://twitter.com/ohursin',
     ctaText: 'Follow'
