@@ -9,7 +9,7 @@ const mediaLinks: MediaLinkProps[] = [
   },
   {
     title: 'Twitter',
-    url: 'https://twitter.com/ohursin',
+    url: 'https://twitter.com/ochursin',
     ctaText: 'Follow'
   },
   {

@@ -37,11 +37,36 @@ const sidebarLinks = [
   { title: 'Uses ', icon: <FaWrench />, url: USES_PATH },
   { title: 'Photography', icon: <FaCamera />, url: PHOTOGRAPHY_PATH },
   { title: 'Online', sectionTitle: true },
-  { title: 'LinkedIn ', icon: <FaLinkedin />, isExternal: true },
-  { title: 'Twitter ', icon: <FaTwitter />, isExternal: true },
-  { title: 'GitHub', icon: <FaGithub />, isExternal: true },
-  { title: 'Dev.to', icon: <FaDev />, isExternal: true },
-  { title: 'Medium', icon: <FaMedium />, isExternal: true },
+  {
+    title: 'LinkedIn ',
+    icon: <FaLinkedin />,
+    url: 'https://www.linkedin.com/in/olegchursin/',
+    isExternal: true
+  },
+  {
+    title: 'Twitter ',
+    icon: <FaTwitter />,
+    url: 'https://twitter.com/ochursin',
+    isExternal: true
+  },
+  {
+    title: 'GitHub',
+    icon: <FaGithub />,
+    url: 'https://github.com/olegchursin',
+    isExternal: true
+  },
+  {
+    title: 'Dev.to',
+    icon: <FaDev />,
+    url: 'https://dev.to/olegchursin',
+    isExternal: true
+  },
+  {
+    title: 'Medium',
+    icon: <FaMedium />,
+    url: 'https://medium.com/@olegchursin',
+    isExternal: true
+  },
   {
     title: 'Unsplash',
     icon: <FaUnsplash />,
