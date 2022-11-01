@@ -83,7 +83,7 @@ const SidebarLinks: FC = () => {
     return (
       <li
         className={clsx(
-          'mt-2 flex items-center justify-between p-2',
+          'mt-2 flex items-center justify-between p-2 duration-300',
           'rounded-lg text-base font-normal text-gray-900 dark:text-white',
           {
             'cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700':

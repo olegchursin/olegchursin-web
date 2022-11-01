@@ -10,7 +10,7 @@ const SidebarHeader = () => {
   return (
     <div
       className={clsx(
-        'border-b-[.5px] border-slate-400 p-4',
+        'border-b-[.5px] border-slate-400 p-4 duration-300',
         'dark:border-slate-700',
         { 'pl-6': sidebarOpen }
       )}

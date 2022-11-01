@@ -16,10 +16,10 @@ const SidebarBody: FC = () => {
     <div className="h-100 flex flex-col justify-between px-6 pt-0">
       <SidebarLinks />
 
-      <div className="p-4 dark:bg-gray-800">
+      <div className="p-4 duration-300 dark:bg-gray-800">
         <FaChevronLeft
           className={clsx(
-            'absolute right-7 bottom-4 h-6 w-6 cursor-pointer text-gray-100',
+            'absolute right-7 bottom-4 h-6 w-6 cursor-pointer dark:text-gray-100',
             { 'rotate-180': !sidebarOpen }
           )}
           onClick={toggleSidebarOpen}
