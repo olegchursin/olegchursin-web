@@ -19,22 +19,22 @@ const mediaLinks: MediaLinkProps[] = [
   },
   {
     title: 'Dev.to',
-    url: 'https://github.com/olegchursin',
+    url: 'https://dev.to/olegchursin',
     ctaText: 'Read'
   },
   {
     title: 'Medium',
-    url: 'https://github.com/olegchursin',
+    url: 'https://medium.com/@olegchursin',
     ctaText: 'Read'
   },
   {
     title: 'Unsplash',
-    url: 'https://github.com/olegchursin',
+    url: 'https://unsplash.com/@olegchursin_photo/stats?stats=all-time',
     ctaText: 'Watch'
   }
 ];
 
-const Online = () => {
+const Media = () => {
   return (
     <div>
       {mediaLinks.map(mediaLink => {
@@ -44,4 +44,4 @@ const Online = () => {
   );
 };
 
-export default Online;
+export default Media;

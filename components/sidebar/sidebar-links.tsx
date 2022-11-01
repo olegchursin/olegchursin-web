@@ -45,7 +45,7 @@ const sidebarLinks = [
   {
     title: 'Unsplash',
     icon: <FaUnsplash />,
-    url: 'https://unsplash.com/@olegchursin_photo/stats',
+    url: 'https://unsplash.com/@olegchursin_photo/stats?stats=all-time',
     isExternal: true
   }
 ];

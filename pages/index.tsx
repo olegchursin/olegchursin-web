@@ -1,10 +1,10 @@
 import Article from '../components/article';
 import Career from '../components/career/career';
+import GradientText from '../components/gradient-text';
 import Image from 'next/image';
-import Online from '../components/online';
+import Media from '../components/media/media';
 import TechTags from '../components/tech-tags';
 import type { NextPage } from 'next';
-import GradientText from '../components/gradient-text';
 
 const Home: NextPage<any> = () => {
   return (
@@ -55,7 +55,7 @@ const Home: NextPage<any> = () => {
 
       <section id="online">
         <h4>Online</h4>
-        <Online />
+        <Media />
       </section>
 
       <section id="offline">
