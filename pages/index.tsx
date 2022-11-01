@@ -22,6 +22,7 @@ const Home: NextPage<any> = () => {
           <a
             href="https://www.aon.com/cyber-solutions/cyqu-cyber-quotient-evaluation/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Cyber insurance tools
           </a>{' '}

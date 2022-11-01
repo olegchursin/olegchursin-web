@@ -94,7 +94,12 @@ const SidebarLinks: FC = () => {
         {sidebarLinks.map((item, index) => {
           if (item.isExternal) {
             return (
-              <a key={index} href={item.url} target="_blank">
+              <a
+                key={index}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {listItem(item)}
               </a>
             );
