@@ -1,8 +1,8 @@
 import Article from '../components/article';
+import Career from '../components/career/career';
 import Image from 'next/image';
 import Online from '../components/online';
 import TechTags from '../components/tech-tags';
-import Work from '../components/career';
 import type { NextPage } from 'next';
 
 const Home: NextPage<any> = () => {
@@ -46,7 +46,7 @@ const Home: NextPage<any> = () => {
 
       <section id="work">
         <h4>Work</h4>
-        <Work />
+        <Career />
       </section>
 
       <section id="tech-stack-tags">

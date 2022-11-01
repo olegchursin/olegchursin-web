@@ -1,5 +1,5 @@
 import Article from '../components/article';
-import Career from '../components/career';
+import Career from '../components/career/career';
 import type { NextPage } from 'next';
 
 const Work: NextPage<any> = () => {
