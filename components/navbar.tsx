@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
-import { FC } from 'react';
 import ThemeSwitch from './theme-switch';
+import { FC } from 'react';
+import { useRouter } from 'next/router';
 
 const Navbar: FC = () => {
   const router = useRouter();

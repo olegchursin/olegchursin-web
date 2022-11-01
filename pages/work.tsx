@@ -1,6 +1,6 @@
-import type { NextPage } from 'next';
 import Article from '../components/article';
 import Career from '../components/career';
+import type { NextPage } from 'next';
 
 const Work: NextPage<any> = () => {
   return (

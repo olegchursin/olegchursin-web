@@ -1,6 +1,6 @@
-import type { NextPage } from 'next';
 import Article from '../components/article';
 import { getPosts } from '../utils/posts';
+import type { NextPage } from 'next';
 
 const Writing: NextPage<any> = ({ posts }) => {
   return (
