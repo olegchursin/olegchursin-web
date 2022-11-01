@@ -1,34 +1,38 @@
 import React from 'react';
-import MediaLink, { MediaLinkProps } from './media-link';
+import WorkLink, { WorkLinkProps } from './work-link';
 
-const workLinks: MediaLinkProps[] = [
+const workLinks: WorkLinkProps[] = [
   {
-    title: 'Mar 2022 - present | Aon Cyber Solutions',
+    place: 'Aon Cyber Solutions',
     url: 'https://www.aon.com/cyber-solutions/',
-    ctaText: 'Senior Software Developer'
+    title: 'Senior Software Developer',
+    year: 'Mar 2022 - Present_'
   },
   {
-    title: 'Aon Cyber Solutions',
+    place: 'Aon Cyber Solutions',
     url: 'https://www.aon.com/cyber-solutions/',
-    ctaText: 'Software Developer'
+    title: 'Software Developer',
+    year: 'Nov 2018 - Mar 2022'
   },
   {
-    title: 'Philosophie',
+    place: 'Philosophie',
     url: 'https://www.philosophie.is/',
-    ctaText: 'Software Engineer'
+    title: 'Software Engineer',
+    year: 'Apr 2018 - Nov 2018'
   },
   {
-    title: 'Human Interaction',
+    place: 'Human Interaction',
     url: 'https://github.com/olegchursin',
-    ctaText: 'Web Developer // Founder'
+    title: 'Web Developer // Founder',
+    year: 'Jul 2012 - Nov 2018'
   }
 ];
 
 const Work = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-4 lg:gap-0">
       {workLinks.map(mediaLink => {
-        return <MediaLink key={mediaLink.title} {...mediaLink} />;
+        return <WorkLink key={mediaLink.title} {...mediaLink} />;
       })}
     </div>
   );

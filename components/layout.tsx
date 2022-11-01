@@ -12,9 +12,9 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         <meta property="og:title" content="Oleg Chursin" key="title" />
       </Head>
       <Sidebar />
-      <main className="h-100 flex-1 bg-gray-100 antialiased duration-300 dark:bg-gray-900 dark:text-white">
+      <main className="relative flex max-h-screen w-full flex-1 flex-col overflow-y-auto bg-gray-100 antialiased duration-300 dark:bg-gray-900 dark:text-white">
         <Navbar />
-        {children}
+        <div className="container py-6 lg:max-w-3xl">{children}</div>
       </main>
     </div>
   );

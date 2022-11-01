@@ -11,7 +11,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        montserrat: ['"Montserrat Alternates"']
+        montserrat: ['"Montserrat Alternates"'],
+        mono: ['"Roboto Mono"']
       }
     }
   },
