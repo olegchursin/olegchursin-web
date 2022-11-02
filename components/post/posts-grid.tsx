@@ -10,11 +10,11 @@ const PostsGrid: FC<PostsGridProps> = ({ posts }) => {
   return (
     <div className="3xl:grid-cols-3 grid grid-cols-2 gap-4">
       {posts.map(post => {
-        const { slug, readingTime, data } = post;
-        const { publishedAt, title, coverImage, tags } = data;
+        const { publishedAt, title, coverImage, tags, slug, readingTime } =
+          post;
         return (
           <PostListItem
-            key={slug}
+            key={title}
             slug={slug}
             readingTime={readingTime}
             title={title}

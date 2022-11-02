@@ -9,20 +9,14 @@ interface Author {
   readonly picture: string;
 }
 
-interface Image {
-  readonly url: string;
-}
-interface PostData {
+export interface Post {
   readonly author: Author;
   readonly coverImage: string;
   readonly publishedAt: string;
   readonly tags: string;
   readonly excerpt: string;
-  readonly ogImage: Image;
+  readonly ogImage: string;
   readonly title: string;
-}
-export interface Post {
-  readonly data: PostData;
   readonly readingTime: string;
   readonly slug: string;
 }

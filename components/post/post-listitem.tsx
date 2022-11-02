@@ -29,7 +29,12 @@ const PostListItem: FC<PostListItemProps> = ({
           <Badge label={tag} />
           <div className="text-sm font-bold capitalize">{title}</div>
         </div>
-        <Image src={imgSrc} width="100px" height="100px" />
+        <Image
+          className="rounded-lg"
+          src={imgSrc}
+          width="100px"
+          height="100px"
+        />
       </div>
       <div className="border-t-[.5px] border-slate-400 py-2 px-4 text-xs dark:border-slate-700">
         <span>{formattedDate}</span>
