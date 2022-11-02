@@ -1,8 +1,8 @@
 import Article from '../components/article';
 import GradientText from '../components/gradient-text';
+import PostsGrid from '../components/post/posts-grid';
 import { getPosts } from '../utils/posts';
 import type { NextPage } from 'next';
-import PostListItem from '../components/post/post-listitem';
 
 interface Author {
   readonly name: string;
@@ -14,13 +14,14 @@ interface Image {
 }
 interface PostData {
   readonly author: Author;
-  readonly cverImage: string;
+  readonly coverImage: string;
   readonly date: string;
+  readonly tags: string;
   readonly excerpt: string;
   readonly ogImage: Image;
   readonly title: string;
 }
-interface Post {
+export interface Post {
   readonly data: PostData;
   readonly slug: string;
 }
@@ -31,16 +32,11 @@ interface WritingProps {
 const Writing: NextPage<WritingProps> = ({ posts }) => {
   return (
     <Article>
-      <div>
-        <h1>
-          <GradientText text={'Latest Posts'} />
-        </h1>
+      <h1>
+        <GradientText text={'Latest Posts'} />
+      </h1>
 
-        {posts.map(post => {
-          const { title, excerpt } = post.data;
-          return <PostListItem key={title} title={title} excerpt={excerpt} />;
-        })}
-      </div>
+      <PostsGrid posts={posts} />
     </Article>
   );
 };

@@ -1,0 +1,27 @@
+---
+title: How to squash Git commits
+excerpt: A quick step-by-step guide on how to squash Git commits
+coverImage: /assets/blog/squash-commits.webp
+date: '2020-03-02 18:44 +0000'
+tags: Git
+author:
+  name: Oleg Chursin
+  picture: '/assets/blog/authors/jj.jpeg'
+ogImage:
+  url: /assets/blog/squash-commits.webp
+---
+
+A really quick step-by-step guide on how to squash Git commits to make your PRs concise, easy to read, and hence easy to review.
+
+Steps:
+
+- Make sure your branch is up to date with the `main` branch.
+- Run `git rebase -i main`.
+- You should see a list of commits, each commit starting with the word "pick".
+- Make sure the first commit says "pick" and change the rest from "pick" to "squash". -- This will squash each commit into the previous commit, which will continue until every commit is squashed into the first commit.
+- Save and close the editor (press `Esc` key, type `:w` and hit `Enter` key) -- save a file and quit vim / Vi by pressing `Esc` key, type `:x` and hit `Enter` key.
+- It will give you the opportunity to change the commit message.
+- Save and close the editor again.
+- Force push the squashed commit: `git push --force-with-lease origin`.
+
+[GitHub gist of the steps above](https://gist.github.com/olegchursin/fd0d6b3d3893be3b58c48036d5be118f)

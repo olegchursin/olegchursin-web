@@ -1,0 +1,164 @@
+---
+title: Communicate Risk with Commits
+excerpt: Using clean straightforward commit messages with specific prefixes to communicate risk
+coverImage: /assets/blog/risk-commits.jpeg
+date: '2022-10-19 18:44 +0000'
+tags: Git
+author:
+  name: Oleg Chursin
+  picture: /assets/blog/authors/jj.jpeg
+ogImage:
+  url: /assets/blog/risk-commits.jpeg
+---
+
+Our web dev team at [Aon Cyber Solutions](https://www.aon.com/cyber-solutions/solutions/) uses **Tagging as a Process (TaaP)** flow as introduced in [DigDeepRoots](https://www.digdeeproots.com/) training. This post is a go-to gist.
+
+Following the principles below will help you become more risk aware by:
+
+- Reviewing code in minutes instead of hours/days.
+- Knowing which code reviews/commits require attention.
+- Introducing fewer bugs on the most common refactorings.
+- Becoming more aware of the risks that lead to bugs.
+
+## TL;DR
+
+- Work in movements. Make smaller commits inside a movement (8-10 LOC).
+- Merge commit should state the purpose of the overall movement/PR.
+- Communicate risk with a one-letter prefix (e.g. `F - Added new feature`).
+- Increase risk sensitivity with bangs (e.g. `F!! - Added a potentially risky feature. Reviewer beware.`)
+- Use provable refactorings (e.g. `r - Extracted method`)
+
+### Cheatsheets
+
+#### MD Table
+
+| May Change Behavior            | Won't Change Behavior    | High Risk                    |
+| ------------------------------ | ------------------------ | ---------------------------- |
+| F - Feature (< 9 LOC)          | t - Test                 | F!! Feature (> 8 LOC)        |
+| B - Bug (< 9 LOC>)             | d - Documentation        | B!! Bug (> 8 LOC)            |
+| R - Test Supported Refactoring | a - Auto-tool            | R!! Non-provable Refactoring |
+|                                | r - Provable Refactoring |                              |
+
+#### Image
+
+![Using commits to communicate risk](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/y9rju1eaqphe9cque4v7.png)
+
+:::info Conventional commits
+
+Yes, our team loves [conventional commits](https://www.conventionalcommits.org/), but found that they do not communicate risk
+
+:::
+
+## Reduce Risk with Micro-Commits
+
+Accomplish each purpose with a sequence of micro-commits. Put a series of micro-commits on a branch, then merge them in with a commit that states the purpose you achieved.
+
+### Practice
+
+Make safer commits by checking in smaller chunks of code per commit. 8-10 lines of code.
+
+- **Step 1**: 3+ commit chain within 5m at least 1x day
+- **Step 2**: 5+ commit chain within 3m at least 3x day
+- **Step 3**: 10+ commit chain within 2m at least 8x day
+
+### Insights
+
+Most of this value comes from increasing your focus. You can deeply focus on one tiny thing at a time, then come back up to re-gain your context and pick the next thing to do. Each commit allows you to finish one step, the branch provides your context, and the final merge commit allows you to verify that you completed your objective. You can enhance this effect by naming the branch after your intention and renaming it each time you learn something that shifts your intention.
+
+These branches also allow you to make commits smaller while conveying intention more clearly. Smaller commits reduce your error rate, and both small commits and clear intention speed up code review. Now you can start each review by understanding the intention and then assess whether the steps make sense. You can also focus more on the ones that need individual review (risky or surprising steps).
+
+## Make Risks Obvious
+
+Communicate the intention behind each change with your team. You will use a simple letter code in each commit message to indicate which one type of change you made in that commit.
+
+Tagging each commit provides 3 distinct pieces of value:
+
+- You write fewer bugs.
+- You become more aware of risk.
+- Code review is faster and more useful.
+
+### Practice
+
+Every time you commit, start the commit message with one of these six letters followed by `space dash space`.
+
+```shell
+F - Feature
+B - Bug
+R - Refactor
+t - Test
+d - Documentation
+a - Auto-tool
+```
+
+### Insights
+
+Just writing the risk codes provides significant value. It makes you stop to think about the intention of your commit (either before making the change or before committing). This will usually cause you to separate refactorings and test-only changes from bug fixes and features. Small commits that each complete one clear intention are less likely to have bugs than larger commits with multiple intentions.
+
+Risk codes also provide value when you see your own commit log. Before it was not always obvious when you were taking on a small (or large) risk. Now each commit shows the risk, and your log shows how risky your coding approach is. Later shifts in this habit will build on this new awareness, helping you do something about the now-visible risks.
+
+Finally, the codes help you quickly understand others’ code. Knowing the author’s intention allows you to assess each commit differently. You can have one mindset when checking a refactoring, another for a behavior change, and a third for a test-only change.
+
+## Increase Risk Sensitivity
+
+Use new tags to denote high risk commits. Start using F!!, B!!, and R!! to denote commits, unless you have evidence to prove you did it in a lower-risk way.
+
+Tagging high-risk commits provides two important but higher-level sources of value:
+
+- Make better choices about risk.
+- See opportunities to increase safety.
+
+### Practice
+
+Perform the following tasks when committing:
+
+- Replace all `R`‘s with `R!!` unless you have strong test support and follow the written steps for that refactoring.
+- Replace any `F`‘s or `B`‘s that have more than 8 lines of change with `F!!` or `B!!`.
+- Any times you have to notate with a `X!!` (high risk), consider alternatives that avoid the `!!` commit flag
+
+:::tip
+There is only one space after a `X!!` code, so your log lines up like this:
+
+```shell
+R - Extract Method
+F!! I should have refactored more
+R!! Edited a bunch trying to refactor
+```
+
+:::
+
+### Insights
+
+It might take you and your teammates time to really start using `X!!` whenever it applies. However, even as you get started, each `X!!` gives the team a chance to find and fix an obstacle. Something in your code, process, or skills makes it hard to do the lower-risk route, so the higher-risk option made sense in this case. Fix that obstacle so everyone will take lower-risk options in the future.
+
+There will always be some `!!` commits in the log, and there will always be some commits that are marked with a capital letter that should be !!. Both of these provide ongoing opportunities for your team to make its practice and environment safer.
+
+## Increase Safety
+
+Perform safe and provable refactoring. Use provable `r` refactorings instead of test-supported `R` or unprovable `R!!` refactorings.
+
+Using provable refactorings makes refactoring safe:
+
+- Refactor without writing bugs.
+- Get untestable code under test without writing bugs.
+
+### Practice
+
+Consider `R!!` and `R` commits, and try a safe refactoring `r`
+
+- Recipe Option: [Extract Method](https://github.com/digdeeproots/provable-refactorings/tree/master/recipes/core-6/extract-function), [Rename](https://github.com/digdeeproots/provable-refactorings/tree/master/recipes/core-6/rename), others, or [extend the catalog](https://github.com/digdeeproots/provable-refactorings).
+- Tool Option: JetBrains IDEs and plugins, Visual Studio, or some others.
+
+### Read by Refactoring
+
+In addition to solving this critical problem, provable refactorings are the foundation of **Read by Refactoring**. Read by Refactoring is a technique for reading code by first safely refactoring it to make it easy to understand, and then reading the result. This works because you can prove that your refactorings are safe even though you don’t understand the code you are refactoring.
+
+### Insights
+
+The provable refactorings fundamentally prevent bugs, allowing an entirely different approach to coding. Right now we will use that to get code under test without introducing bugs in the process.
+
+Future habits will apply provable refactoring to address a wide variety to architectural and design problems. This shift familiarizes you with a widely-applicable technique.
+
+## External Links
+
+- [Code by Refactroring](https://learn.digdeeproots.com/)
+- [Provable Refactorings](https://github.com/digdeeproots/provable-refactorings)

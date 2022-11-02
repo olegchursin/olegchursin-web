@@ -1,0 +1,395 @@
+---
+title: Notes on Better User Stories Course
+excerpt: Learn to write better user stories with Mike Cohn's Better User Stories course
+coverImage: /assets/blog/user-stories.png
+date: '2022-02-16 18:44 +0000'
+tags: Agile
+author:
+  name: Oleg Chursin
+  picture: '/assets/blog/authors/jj.jpeg'
+ogImage:
+  url: /assets/blog/user-stories.png
+---
+
+Better User Stories is a video course from Mike Cohn of Mountain Goat Software designed to help you with user stories in your organization.
+
+https://www.mountaingoatsoftware.com/training/courses/better-user-stories
+
+Below are my notes on this course.
+
+## Course Modules
+
+1. What Stories Are
+2. Users, User Roles and Personas
+3. Story Mapping and Story-Writing Workshops
+4. Adding Detail with Conditions of Satisfaction or Acceptance Criteria
+5. INVEST in Good Stories
+6. Splitting Stories
+7. Overcoming Common Problems
+8. Things That Are Not User Stories
+
+---
+
+## What Stories Are
+
+User story - short simple statement told from the perspective of a user.
+
+A story can be improved with a `so that` clause.
+
+### Story template:
+
+```
+As a <type of user>,
+I <want/can/need/am required to> <some goal>
+so that <some reason>
+```
+
+Qs answered by using the template: 1. Who wants it? 2. What is it they want? 3. Why?
+
+### 3Cs of a user Story
+
+- Card
+- Conversation
+- Confirmation
+
+#### Card
+
+A starting point of a story.
+Represents the following:
+_ A promise from the development team to ask questions
+_ A promise from the product owner to be available for clarification \* An opportunity for the product owner to avoid writing long specification documents
+
+#### Conversation
+
+Starts with a two-way promise represented by a story Card: - from the dev team - a promise to ask Qs - from the product owner - a promise to be available to answer Qs (As a product owner, I write just enough that the team and I have good conversation so that we can be agile.)
+
+#### Confirmation
+
+Product owner’s way of telling the team what needs to be done in order for the story to be considered complete. - what are conditions of satisfactions
+
+### Adding detail to a user story
+
+Multiple ways of doing it: 1. split the story into smaller stories 2. addict to a story a list of the things that a product owner expects to be true about the completed story (acceptance criteria)
+
+### A story is a pointer to a requirement
+
+    - attach additional supporting information/diagrams to the story
+
+---
+
+## Users, User Roles and Personas
+
+User role is: - a collection of characteristic needs, interests, expectations, and behaviors in relation to a particular system - users who share common needs, interests or behaviors - combination of users who have enough in common that we may think of their needs as largely similar
+
+### Context, Characteristics, and Criteria
+
+To identify user roles, consider user similarities in: - context - physical environment - social environment - domain knowledge - proficiency (developer vs grandma) - system access (slow vs high internet connection speed) - characteristics - frequency of interaction with the system - regularity of interaction - complexity of work performed - the volume of work performed - user’s mental state (using the system under stress vs not) - criteria - user’s main goal - secondary goals - ease of use - reliability - accuracy of results
+
+### How to Do User Role Modeling
+
+The process will provide meaningful; insights into who the product users are, how they differ, and what functionality they need
+
+4 Role Modeling Steps:
+
+1. Brainstorm an initial set of users roles
+   - done once in the beginning of the project
+   - the whole team is present
+   - fast and furious - no judgement
+2. Organize the initial set
+   - group similar roles together
+   - identify aggregate roles
+3. Consolidate
+   - look at each role and see if they can be combined
+   - rename the combined role
+4. Refine
+   - eliminate roles that are unimportant for the product
+   - remove roles that are too broad
+
+### Documenting a User Role Model
+
+Outcome documents include: - model itself - a diagram representing hierarchal relationship among user roles - one page description for each role
+Structure:
+
+```
+	User role title
+		- Context (category 1)
+			- attribute 1.1
+				- description
+			- attribute 1.2
+				- description
+			- attribute 1.3
+				- description
+		- Characteristics (category 2)
+			- attribute 2.1
+				- description
+			- attribute 2.2
+				- description
+			- attribute 2.3
+				- description
+		- Criteria (category 3)
+			- attribute 3.1
+				- description
+			- attribute 3.2
+				- description
+			- attribute 3.3
+				- description
+```
+
+User role template link [].
+
+### Personas (Intro)
+
+    - Highly descriptive and detail archetypes representing each user role.
+    - user role on steroids
+    - it’s given a name, specific goals, attitudes, and an environment
+
+IMPORTANT: - If you get a persona wrong, you end up building the absolutely right product for the absolutely wrong type of person. - Without the data to backup the details, a persona is just a guess
+
+Create a persona when: 1. You are creating a high-consideration product. - a product the requires a lot of thought either before a user buys it or while using it 2. You aren’t guessing at the extra detail. - use data on users of current products - do research on likely users of a product - talk to actual users - observe real users
+
+### Attributes to Consider When Creating a Persona
+
+Consider ONLY the attributes that are important for your product.
+
+Set of attributes to look at when defining a persona: - Demographic (quantitative) - age - gender - geography - income level - education - Psychographic (qualitative) - fears - preferences - attitudes - opinions - lifestyle - values
+
+### Documenting a Persona
+
+Give persona a name, you may also attach a photo, and a dd a quote from real user interviews.
+
+Describe their: - Demographics - Personal - Goals - Skills or experience - Fears - Attitudes and feelings - Environment
+
+Persona template link [].
+
+### Decorated User Roles
+
+User role types: - first-class citizens - decorated user roles (as in decorated symbols in maths) - create by adding a descriptive introduction to a first-class citizen name, as in: - first-time user, first-time visitor, first-time registered member - forgetful registered member - as a user who has completed CyQu, I can download a report
+
+### Writing User Stories for the Right User
+
+Principles: - do not write all stories using the role at the top of the hierarchy (aggregate role) - use a role most likely to perform a story. This: - prevents every story from being “As a user, …” - puts us in the mindset of that user - if you feel constantly compelled to write the same story for different user roles, this could be an indicator that you should rethink the user roles you have identified - put multiple roles into the story when: - roles are equally likely to perform the story - roles are so different that one may be forgotten - roles will use the functionality in slightly different ways
+
+---
+
+## Story Mapping and Story-Writing
+
+### The Four Times to Write Stories
+
+    1. Whenever a new idea occurs to you
+    2. During iteration review meetings
+    3. During product backlog refinement/grooming meetings
+    4. During story-writing workshop - the most strategic
+    	- attended by the whole team
+    	- attended by important stakeholders
+    	- being help quarterly
+
+### A Significant Objective Focuses the Scope of a Story-Writing Workshop
+
+Define a significant objective for the quarter: an MVP or an MMF
+
+- MVP vs MMF (Minimum Marketable Feature)
+
+MMF - a chunk of functionality that delivers a subset of the customer’s requirements, and that s capable of returning value to the customer when released as an independent entity.
+
+Significant objective includes: - business objective - user objective
+
+Significant objective: - provides focus - leads to greater creativity
+
+### Story-Writing Workshop Attendees, Duration and Preparation
+
+Important Qs: 1. Who runs the workshop? - scrum master/coach 2. Who attends? - product owner - entire dev team - stakeholders - users/customers 3. How long does it last? - 4-5 hours with breaks - influenced by: - number of participants - whether there’s a shared vision - whether the work is new 4. What preparation is done in advance? - basic meeting stuff - product should already have user roles/personas identified - print out user roles/personas and attach them to the wall - product owner should be ready to present the significant objective for the quarter - sticky notes, pens, markers
+
+### The Story-Writing Workshop Agenda
+
+5 Steps: 1. Product owner presents the significant objective 2. Discuss user roles and personas relevant to the goals of the workshop 3. Story generation - all stories that achieve the significant objective 4. Story selection - which stories will best fulfill the significant objective 5. Schedule follow-up sessions if needed
+
+### Story Mapping
+
+Adding a second dimension (sequence/narrative) to the backlog list (usually unidirectional and prioritized from most to least important)
+
+Story map concepts/terms: - Narrative - a sequence of items read across the story map - Backbone - the topmost one or two narratives - Step - any item on the map - Activity - a collection of steps that are performed to achieve a goal
+
+### Making Decisions with a Story Map
+
+Story maps can help: - identify missing functionality - plan a release to determine an MVP - create a product road map
+
+Qs to ask in regards to each step: 1. What else might a user want to do? 2. What additional info might a user find helpful? 3. What could go wrong?
+
+---
+
+## Adding Detail with Conditions of Satisfaction or Acceptance Criteria
+
+### Progressive Refinement - Adding Detail over Time
+
+Stories are initially vague on purpose. They open up a conversation.
+
+When starting a project, include large, placeholder stories for functionality you are aware will need to be built but which will not be started until well into the future. Then refine those stories into progressively smaller and smaller stories over the course of the entire project. Going through a list of stories only once at the start of a project will not be sufficient.
+
+Progressive refinement of a story includes: - splitting story into smaller stories - adding details to a story
+
+### Epics and Themes
+
+Epic - single large user story. A story that is bigger than one team can do in one iteration.
+
+Theme - a collection of related stories. - a story can be in two themes at the same time
+
+### Two Ways of Adding Detail to a Story
+
+    1. Ask product owner questions and split into smaller stories accordingly
+    2. Add tests to the stories
+
+Both approaches are functionally equivalent. Anything that can be written as test to a story, could be written as a substory and vice versa.
+
+When chose one over the other? - When you have a bigger story, split it. - When you have a small enough story already, add tests.
+
+### Condition of Satisfaction
+
+To be considered done, a user story must fulfill the product owner’s expectations. The best way to determine those is through one or more conversations with the product owner. If team members have specific needs from a story, it is fine to meet and discuss the story with them, too, but a first step should be a conversation with the product owner.
+
+### How Much Detail Is Appropriate
+
+Just enough detail that the team can finish the story in the iteration.
+
+### Working with a Team That Wants too Much Detail
+
+    - Product owners should not specify every small detail.
+    - Product owner may not be the best person to make a decision.
+
+### A Definition of Ready and Why Having One Could Be Dangerous
+
+    - A **Definition of Ready** enables a team to specify certain pre-conditions that must be fulfilled before a story is admitted into an iteration.
+    - Goal - prevent problems before they start.
+    - Each team decided on their own Definition of Ready for each story to be included into an iteration.
+    - Some of the rules can cause trouble and prevent the team from being agile locking it into a stage-gate flow (one thing cannot start until another thing is done).
+
+If a Definition of Ready is needed, it will be best if it focuses on guidelines rather than hard-and-fast rules. And with a Definition of Ready, the team will need to take care to emphasize working concurrently. For example, a little coding is going on even while some design is still occurring. This avoids creating a stage-gate process in which all of one activity must be completed before ANY of the next activity can begin.
+
+Agile teams should practice concurrent engineering in which activities overlap -> most teams should not even use the definition of ready.
+
+---
+
+## INVEST in Good Stories
+
+Attributes of a good story: - Independent - Negotiable - a story opens up a conversation between product owner and dev team - Valuable - to customer - to user - to stakeholder - Estimatable - a story should not be too big to estimate - if a story is not estimable today, leave it and come back to it later - Sized appropriately or Small - top of the backlog always contained smaller stories that are ready to go into the next iteration - Testable - being able to identify confirmation criteria
+
+---
+
+## Splitting Stories
+
+Why split a story? - different priorities - lack of time - size - too big to be completed in one iteration
+
+2 types of large story: - complex - fundamentally large and cannot be split: these are rare - compound - combines multiple user actions into one: can be split
+
+### The SPIDR Approach to Splitting Stories
+
+    - Spikes
+    	- research activity intended to build knowledge
+    	- timeboxed
+    	- should only be used to remove excess uncertainty from a story -> do not overuse spikes
+    - Paths
+    	- drill down to find underlying steps/paths
+    - Interfaces
+    	- story that has multiple user interfaces
+    - Data
+    	- split by the data handled by the story
+    - Rules
+    	- look at the conditions of satisfaction and pull out any rules that make the story too big
+
+### Tracer Bullet Story
+
+A story is a tracer bullet through a system technology stack
+
+Advantages: - reduce architectural risk - easier to prioritize - make early releases possible
+
+### Closed Stories
+
+When splitting stories try to create a closed story
+
+Closed story - the one that finishes with the user having achieved a meaningful goal
+
+### Three Things to Do when You Can’t Split a Story
+
+    1. Try harder
+    	- most stories are compound rather than complex
+    	- walk through the SPIDR approach
+    2. Let it take more than one iteration
+    3. Feel guilty
+    	- if you allow a story to span more than one iteration, feel guilty
+
+---
+
+## Overcoming Common Problems
+
+### Managing Dependencies Between Stories
+
+Techniques for dealing with dependencies between stories: 1. Combine stories 2. Split stories as late as possible 3. Reconsider the way in which stories were split 4. Annotate stories with important dependencies
+
+Do not document obvious dependencies
+
+### Stories with Too Much Detail
+
+    - when you first write the story, focus on WHAT the user wants to achieve and HOW they want to achieve it
+    - initially leave UI assumptions out
+
+Just in time and Just enough - developers need just enough information provided to them just in time
+
+### Spending Too Much Time Splitting Stories
+
+If you spend too much time splitting stories, consider the following: - assess whether stories are too detailed - consider whether stories are small enough already - consider changing to a longer iteration length (avoid iterations longer than 4 weeks)
+
+### Stories Involving More than One Team
+
+    - Indicate all the team need/can work on a story
+    - mark appropriate dependencies
+
+### Stories that Are Really Tasks
+
+Bad habit - creating tasks that masquerade as stories
+
+Stories vs Tasks - story - generally something that is worked on by more than one person - contains multiple types of work - task - generally worked on by just one person - contains single type of work
+
+Stories that are really tasks create problems: 1. The duo not deliver value 2. They are risky 3. They lead to phased development
+
+---
+
+## Not Everything Needs to Be a User Story
+
+### Nonfunctional Requirements
+
+Requirements that have to do with operation of the system rather than its specific behaviors
+
+Often called —ilities - portability - maintainability - testability - scalability - usability
+
+They are constraints on how the system is developed
+
+### Stories and Bugs
+
+Reporting a bug and asking for a new feature is fundamentally/conceptually the same thing - a desire to introduce changes to the system
+
+Bugs should not be written in a story syntax.
+
+### Features from Feature-Driven Development
+
+FDD - feature driven development - feature list = Scrum’s product backlog - syntax: `<action> the <result> <by|for|of|to> a(n) <object>`
+
+FDD feature syntax can be helpful: - when the is no immediate user present. - for more technical parts of the system - for API development tasks
+
+### Job Stories
+
+Variation on User stories
+
+Job stories are addressing two problems identified with user stories:
+
+1. Many users have the same goal
+2. Users do not know the solution to their problem
+
+Template for Job stories:
+
+```
+When ______ I want to ______ so I can ______ .
+```
+
+When to use job stories:
+
+1. When knowing a user’s motivation is more important than knowing details about the user
+2. When dev team members and user already talk often
