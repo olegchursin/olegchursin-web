@@ -1,35 +1,51 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import readingTime from 'reading-time';
 import { POSTS_PATH } from './paths';
 
 const FILE_EXT = '.mdx';
-
 const files = fs.readdirSync(path.join(POSTS_PATH));
 
-const getFileContents = (slug: string) => {
-  return fs.readFileSync(path.join(`${POSTS_PATH}/${slug}${FILE_EXT}`), 'utf8');
-};
+function getReadingTime(fileContents: string) {
+  return readingTime(fileContents).text;
+}
 
-export const getPosts = () => {
+function getFileContents(slug: string) {
+  return fs.readFileSync(path.join(`${POSTS_PATH}/${slug}${FILE_EXT}`), 'utf8');
+}
+
+export function getPosts() {
   return files.map(fileName => {
     const [slug] = fileName.split('.');
     const fileContents = getFileContents(slug);
     const { data } = matter(fileContents);
+    const readingTime = getReadingTime(fileContents);
 
     return {
-      slug,
-      data
+      data,
+      readingTime,
+      slug
     };
   });
-};
+}
 
-export const getPost = (slug: string) => {
+export function getPost(slug: string) {
   const fileContents = getFileContents(slug);
   const { data, content } = matter(fileContents);
+  const { title, excerpt, coverImage, publishedAt, tags } = data;
+  const readingTime = getReadingTime(fileContents);
 
   return {
-    data,
-    content
+    content,
+    frontmatter: {
+      coverImage,
+      excerpt,
+      publishedAt,
+      readingTime,
+      slug,
+      tags,
+      title
+    }
   };
-};
+}

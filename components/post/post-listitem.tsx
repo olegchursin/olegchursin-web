@@ -4,17 +4,26 @@ import { formatDateTime } from '../../utils/datetime';
 import Badge from '../badge';
 
 interface PostListItemProps {
-  readonly title: string;
   readonly imgSrc: string;
+  readonly publishedAt: string;
+  readonly readingTime: string;
+  readonly slug: string;
   readonly tag: string;
-  readonly date: string;
+  readonly title: string;
 }
 
-const PostListItem: FC<PostListItemProps> = ({ title, date, tag, imgSrc }) => {
-  const formattedDate = formatDateTime(new Date(date));
+const PostListItem: FC<PostListItemProps> = ({
+  imgSrc,
+  publishedAt,
+  readingTime,
+  tag,
+  title
+}) => {
+  const formattedDate = formatDateTime(new Date(publishedAt));
+  const dotSeparator = <span>&nbsp;&#x2022;&nbsp;</span>;
 
   return (
-    <div className="flex flex-col justify-between rounded-lg bg-white  dark:bg-gray-800">
+    <div className="flex flex-col justify-between rounded-lg bg-white dark:bg-gray-800">
       <div className="flex justify-between p-4">
         <div className="mt-[-6px]">
           <Badge label={tag} />
@@ -23,7 +32,9 @@ const PostListItem: FC<PostListItemProps> = ({ title, date, tag, imgSrc }) => {
         <Image src={imgSrc} width="100px" height="100px" />
       </div>
       <div className="border-t-[.5px] border-slate-400 py-2 px-4 text-xs dark:border-slate-700">
-        {formattedDate}
+        <span>{formattedDate}</span>
+        {dotSeparator}
+        <span>{readingTime}</span>
       </div>
     </div>
   );

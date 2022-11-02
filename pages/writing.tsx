@@ -15,7 +15,7 @@ interface Image {
 interface PostData {
   readonly author: Author;
   readonly coverImage: string;
-  readonly date: string;
+  readonly publishedAt: string;
   readonly tags: string;
   readonly excerpt: string;
   readonly ogImage: Image;
@@ -23,6 +23,7 @@ interface PostData {
 }
 export interface Post {
   readonly data: PostData;
+  readonly readingTime: string;
   readonly slug: string;
 }
 interface WritingProps {
