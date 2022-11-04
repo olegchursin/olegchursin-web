@@ -1,0 +1,244 @@
+---
+title: AWS Certified Security Specialty Exam - Practice Questions
+excerpt: A list of practice questions with answers to help prepping yourself for AWS Certified Security Specialty Exam
+coverImage: /assets/blog/aws-security.jpeg
+publishedAt: '2021-12-14 18:44 +0000'
+tags: AWS
+author:
+  name: Oleg Chursin
+  picture: /assets/blog/authors/jj.jpeg
+ogImage: /assets/blog/aws-security.jpeg
+---
+
+A list of practice questions with answers to help prepping yourself for AWS Certified Security Specialty Exam.
+
+### A security engineer must ensure that all infrastructure that is launched in the company AWS account is monitored for changes from the compliance rules. All Amazon EC2 instances must be launched from one of a specified list of Amazon Machine Images (AMIs), and all attached Amazon Elastic Block Storage (Amazon EBS) volumes must be encrypted. Instances that are not in compliance must be terminated. Which combination of steps should the security engineer implement to meet these requirements?
+
+- **Monitor compliance with AWS Config rules.** AWS Config is used to monitor the configuration of AWS resources in your AWS account. It ensures compliance with internal policies and best practices by auditing and troubleshooting configuration changes.
+
+- **Create a custom remediation action by using AWS Systems Manager Automation runbooks.** You can set up remediation actions through the AWS Config console or API. Choose the remediation action you want to associate from a pre-populated list, or create your own custom remediation actions by using Systems Manager Automation runbooks.
+
+For more information about using AWS Config rules for automatic remediation, see [Use AWS Config Rules to Automatically Remediate Non-compliant Resources](https://aws.amazon.com/about-aws/whats-new/2019/09/use-aws-config-rules-to-automatically-remediate-non-compliant-resources/) .
+
+For more information about AWS Systems Manager Automation runbooks, see [AWS System Manger Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation.html) .
+
+For more information about how to create runbooks, see [Creating a runbook that runs a script (console)](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-document-script-console.html) .
+
+---
+
+### A company policy requires that no insecure server protocols are used on its Amazon EC2 instances. These protocols include FTP, Telnet, and HTTP. The company’s security team wants to evaluate compliance with this requirement by using a scheduled Amazon EventBridge (Amazon CloudWatch Events) event to review the current infrastructure and create a regular report about the EC2 instances. Which process will check the compliance of the company’s EC2 instances?
+
+**Run an Amazon Inspector assessment by using the Network Reachability rules package against the instances.**
+
+Amazon Inspector tests the network accessibility of your EC2 instances and the security state of your applications that run on those instances. Amazon Inspector assesses applications for exposure, vulnerabilities, and deviations from best practices. The rules in the Network Reachability package analyze your network configurations to find security vulnerabilities of your EC2 instances.
+
+For more information about Amazon Inspector, see [What is Amazon Inspector?](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html)
+
+For more information about the Network Reachability rules for Amazon Inspector, see [Network Reachability](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_network-reachability.html) .
+
+---
+
+### A company has a legacy application that outputs all logs to a local text file. Logs from all applications that run on AWS must be continually monitored for security related messages. What should the company do to deploy the legacy application on Amazon EC2 and still meet the monitoring requirement?
+
+**Send the local text log files to Amazon CloudWatch Logs, and configure a CloudWatch metric filter. Set CloudWatch alarms based on the metrics.**
+
+You can see all of your logs, regardless of their source, as a single and consistent flow of events ordered in time by using CloudWatch Logs. You can query and sort your logs based on other dimensions, group them by specific fields, create custom computations by using a query language, and visualize log data on the dashboards.
+
+For more information about CloudWatch Logs, see [What is Amazon CloudWatch Logs?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
+
+For more information about CloudWatch metric filters, see [Creating metrics from log events using filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html) .
+
+---
+
+### A company is using AWS CloudTrail to log all AWS API activity for all AWS Regions in all of its accounts. The company wants to protect the integrity of the log files in a central location. Which combination of steps will protect the log files from alteration? (TWO)
+
+- **Create a central Amazon S3 bucket in a dedicated log account. In the member accounts, grant CloudTrail access to write logs to this bucket.**
+
+This solution meets the requirement to log all AWS API activity to a central location by providing all the AWS accounts the ability to push their logs to a central S3 bucket.
+
+- **Enable AWS Organizations for all AWS accounts. Enable CloudTrail with log file integrity validation while creating an organization trail. Direct logs from this trail to a central Amazon S3 bucket.**
+
+Create a central S3 bucket in a dedicated log account. To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it, you can use CloudTrail log file integrity validation. CloudTrail log file integrity validation ensures the integrity of the log files by reporting if a log file has been deleted or changed. When you set up an organization trail within Organizations, you can enable log file integrity validation. The trail logs activity for all organization accounts in the same S3 bucket. Member accounts will not be able to delete or modify the organization trail. Only the management account will be able to delete or modify the trail for the organization.
+
+---
+
+### A company has an external vendor that must deliver files to the company. The vendor has cross-account access that gives them permission to upload objects to an Amazon S3 bucket owned by the company. The company wants to have complete control of the objects after they have been uploaded by the vendor. Which combination of steps must the vendor follow to successfully deliver a file to the company? (TWO)
+
+- **Configure S3 Object Ownership for the S3 upload bucket.**
+
+S3 Object Ownership is an S3 feature that enables bucket owners to automatically assume ownership of objects that are uploaded to their buckets by other AWS accounts.
+For more information about S3 Object Ownership, see [Controlling ownership of uploaded objects using S3 Object Ownership](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html) .
+
+- **Upload the file to the company's S3 bucket as an object by using the Write-S3Object command.**
+
+You can use the Write-S3Object Tools for Windows PowerShell command to upload an object.
+
+For more information about granting object permissions, see [Bucket owner granting permissions to objects it does not own](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example3.html) .
+
+---
+
+### A company will deploy a new application on Amazon EC2 instances in private subnets. The application will transfer sensitive data to and from an Amazon S3 bucket. According to compliance requirements, the data must not traverse the public internet. Which solution meets the compliance requirement?
+
+**Access the S3 bucket through a VPC endpoint for S3.**
+
+A VPC endpoint is correct because it enables you to privately connect your VPC to supported AWS services. A VPC endpoint, powered by AWS PrivateLink, does not require the use of an internet gateway, NAT device, VPN connection, or AWS Direct Connect.
+
+---
+
+### An application that runs on Amazon EC2 instances in a VPC must access sensitive data in an on-premises data center. No network connections are present other than the internet. The connection must be encrypted with IPsec encryption in transit and have consistent low latency. Which hybrid architecture meets these requirements?
+
+**Set up a VPN between the VPC and the data center over an AWS Direct Connect connection.**
+
+This solution combines the benefits of the secure IPsec connection with the low latency and increased bandwidth of Direct Connect. This solution provides a more consistent network experience than internet-based VPN connections. A BGP connection is established between Direct Connect and your router on the public VIF. Another BGP session or a static router will be established between the virtual private gateway and your router on the IPsec VPN tunnel.
+
+---
+
+### An AWS customer performs DDoS testing with a large simulated attack on its web application, which is running on Amazon EC2 instances. Later, AWS contacts the customer and informs the customer that the testing violated the AWS Customer Agreement. How can the customer perform future testing without violating the agreement?
+
+**Work with an AWS Partner Network (APN) Partner to perform the simulation.**
+
+A DDoS simulation can only be performed with the assistance of an APN Partner. If a customer conducts a simulation without the APN Partner, the customer is in violation of the AWS Customer Agreement.
+
+For more information about DDoS simulations, see [DDoS Simulation Testing Policy](https://aws.amazon.com/security/ddos-simulation-testing/) .
+
+---
+
+### An application that runs on Amazon EC2 instances in a VPC must call an external web service by using TLS (port 443). The EC2 instances run in public subnets. Which configurations allow the application to function and minimize the exposure of the instances? (TWO)
+
+- **A network ACL with rules that allow outgoing traffic on port 443 and incoming traffic on the ephemeral ports**
+
+A network ACL is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets. Network ACLs are stateless. Responses to allowed inbound traffic are subject to the rules for outbound traffic, and responses to allowed outbound traffic are subject to the rules for inbound traffic. Based on its stateless property, outgoing traffic on port 443 and incoming traffic on ephemeral ports must be allowed. Ephemeral ports are for the return traffic to the client.
+
+- **A security group with a rule that allows outgoing traffic on port 443**
+
+A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. A security group is stateful, which means that if you send a request from your instance, the response traffic for that request is allowed to flow in regardless of inbound security group rules. So, you need to only allow outgoing traffic on port 443.
+
+---
+
+### A company wants to make available an Amazon S3 bucket to a vendor so that the vendor can analyze the log files in the S3 bucket. The company has created an IAM role that grants access to the S3 bucket. The company also has to set up a trust policy that specifies the vendor account. Which pieces of information are required as arguments in the API calls to access the S3 bucket? (TWO)
+
+- **The Amazon Resource Name (ARN) of the IAM role in the company's account**
+
+The ARN of the IAM role you want to assume needs to be specified as an argument in the API call. The IAM role is created in the company’s account. A trust policy is established and attached to the IAM role so that the vendor can assume the role.
+
+For more information about assuming an IAM role, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) .
+
+For more information about delegating access across AWS accounts by using IAM roles, see [IAM tutorial: Delegate access across AWS accounts using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html) .
+
+- **An external ID originally provided by the vendor to the company**
+
+You must always specify the external ID in your AssumeRole API calls. The external ID allows the user that is assuming the role to assert the circumstances in which they are operating. It also provides a way for the account owner to permit the role to be assumed only under specific circumstances.
+
+For more information about using an external ID when granting access to your AWS resources, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
+
+---
+
+### Every application in a company’s portfolio has a separate AWS account for development and production. These accounts are centrally managed and governed within AWS Organizations. The security team wants to make sure all IAM users in the production accounts are not allowed to manually modify or update the AWS Key Management Service (AWS KMS) encryption keys. How can the security team control this functionality?
+
+**Create an SCP that denies access to the services. Assemble all production accounts in an OU. Apply the policy to that OU.**
+
+SCPs are a type of organization policy that you can use to manage permissions in your organization. By using an SCP, your accounts stay within your organization’s access control guidelines. Because the requirement is for all IAM users in the production accounts, the policy should be applied to the hierarchy OU of those production accounts.
+
+For more information about SCPs, see [Managing the AWS accounts in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html) .
+
+For more information about Organizations, see [What is AWS Organizations?](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)
+
+---
+
+### An AWS Lambda function reads metadata from an Amazon S3 object and stores the metadata in an Amazon DynamoDB table. The function runs whenever an object is stored within the S3 bucket. How should a security engineer give the Lambda function access to the DynamoDB table?
+
+- **Create an IAM service role with permissions to write to the DynamoDB table. Associate that role with the Lambda function.**
+
+This method is a valid way to create an IAM role that has the required permissions and to associate the IAM role with the Lambda function. You specify the IAM role when you create your Lambda function. You can choose an existing managed policy or create your own policy with permissions. The permissions you grant to this role determine what the Lambda function can do when it assumes the role.
+
+For more information about the Lambda execution role, see [AWS Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) .
+
+For more information about resource-based policies for Lambda, see [Using resource-based policies for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) .
+
+---
+
+### A company wants to enable SSO so that its employees can sign in to the AWS Management Console by using the company’s SAML provider. Which combination of steps are required as part of the process? (TWO)
+
+- **Create IAM policies that can be mapped to group memberships in the corporate directory.**
+
+The IAM policies are assigned to the IAM role that is authenticated by the SAML assertion.
+
+For more information about assuming a role with SAML, see [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) .
+
+- **Create an IAM role that establishes a trust relationship between IAM and the corporate SAML identity provider (IdP).**
+
+This step is to create an IAM role that establishes a trust relationship between IAM and your IdP. This role must identify your IdP as a principal (trusted entity) for purposes of federation.
+
+For more information about the trust relationship, see [Enabling SAML 2.0 federated users to access the AWS Management Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html) .
+
+For more information about the federation IAM role, see [Prerequisites for creating a role for SAML](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html#idp_saml_Prerequisites) .
+
+---
+
+### A company generates sensitive records that it stores in an Amazon S3 bucket. The company encrypts all objects in the S3 bucket by using one of the company’s CMKs for server-side encryption with AWS KMS managed encryption keys (SSE-KMS). Compliance policies require the company to use a different encryption key for each month of data. Which solution will meet these requirements?
+
+**Use Amazon EventBridge (Amazon CloudWatch Events) to schedule a monthly AWS Lambda function that creates a new CMK and updates the S3 bucket to use the new CMK as an S3 Bucket Key.**
+
+EventBridge (CloudWatch Events) is a serverless event bus service that makes it easy to connect your applications with data from a variety of sources. A Lambda function can be invoked by EventBridge (CloudWatch Events) to create a new CMK.
+
+For more information about S3 Bucket Keys, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html) .
+
+For more information about EventBridge (CloudWatch Events), see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html)
+
+---
+
+### A company has several CMKs. Some of the CMKs have imported key material. The company’s security team must rotate each CMK annually. Which methods can the security team use to rotate each CMK? (TWO)
+
+- **Enable automatic key rotation for a CMK.**
+
+Automatic key rotation is disabled by default on customer managed CMKs. When you enable (or re-enable) key rotation, AWS KMS automatically rotates the CMK 365 days after the enable date and every 365 days thereafter.
+
+- **Import new key material to a new CMK. Point the key alias to reference the new CMK.**
+
+You can either rotate the key automatically or manually. To rotate the key manually, import new key material to a new CMK and update the alias to the new CMK.
+
+For more information about rotating CMKs, see [Rotating AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) .
+
+---
+
+### An application that runs on Amazon EC2 instances must use a user name and password to access a legacy application. A developer has stored those secrets in AWS Systems Manager Parameter Store with type SecureString by using the default AWS Key Management Service (AWS KMS) CMK. Which combination of configuration steps will allow the application to access the secrets through the API? (TWO)
+
+- **Add a permission to the EC2 instance role that allows it to read the Systems Manager parameter.**
+
+For the application to use the credentials, the following IAM policies are assigned to the instance role:
+
+```json
+{
+    “Version”:”2012-10-17”,
+    “Statement”:[
+        {
+            “Effect”:”Allow”,
+            “Action”:[
+                “ssm:GetParameters”
+            ],
+            “Resource”:[
+                “arn:aws:ssm:region:account-id:parameter/prod-*”
+            ]
+        },
+        {
+            “Effect”:”Allow”,
+            “Action”:[
+                “kms:Decrypt”
+            ],
+            “Resource”:[
+                “arn:aws:kms:region:account-id:key/KMSkey”
+            ]
+        }
+    ]
+}
+```
+
+The policies grant permission to the EC2 instance role so that it can read the Systems Manager parameter and decrypt the parameter with the KMS encryption key.
+
+For more information about how to restrict access to Systems Manager parameters by using IAM policies, see [Restricting access to Systems Manager parameters using IAM policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-access.html) .
+
+- **Add a permission to the EC2 instance role that allows it to decrypt the KMS encryption key.**
+
+---
+
+Original source: **https://amazonwebservices.benchprep.com/**
