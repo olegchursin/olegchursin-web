@@ -28,13 +28,13 @@ const PostListItem: FC<PostListItemProps> = ({
   return (
     <Link href={`${WRITING_PATH}/${slug}`}>
       <div className="flex cursor-pointer flex-col justify-between rounded-lg bg-white dark:bg-gray-800">
-        <div className="flex justify-between p-4">
-          <div className="mt-[-6px]">
+        <div className="flex flex-wrap justify-between p-4">
+          <div className="mt-[-6px] basis-2/3">
             <Badge label={tag} />
             <div className="text-sm font-bold capitalize">{title}</div>
           </div>
           <Image
-            className="rounded-lg"
+            className="flex-shrink-0 flex-grow-0 basis-1/3 rounded-lg"
             src={imgSrc}
             width="100px"
             height="100px"
