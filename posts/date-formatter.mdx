@@ -10,9 +10,11 @@ author:
 ogImage: /assets/blog/risk-commits.jpeg
 ---
 
-The simpler the better. Here's a dead simple date formatter snippet that works in all modern browsers as well as node apps.
+## The simpler the better
 
-```js
+Here's a dead simple date formatter snippet that works in all modern browsers as well as node apps.
+
+```js:formatter.js
 // define formatter
 const locale = 'en-US';
 const options = {
@@ -29,17 +31,33 @@ const date = new Date();
 const formattedDate = formatter.format(date);
 ```
 
-Typed version is also here:
-
-{% gist https://gist.github.com/olegchursin/2b9d0718f3c1a5012335ac2a50326758.js %}
-
 What's going on above? We grab the current date with `new Date()`, instantiate the formatter with `Intl.DateTimeFormat` providing the locale string and date format options object.
 
-Tiny playground file:
+## Types for the win
 
-`datetime-format.js`
+```ts:formatter.ts
+// define formatter
+const locales: string | string[] = 'en-US';
+const options: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit'
+};
+const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat(
+  locales,
+  options
+);
 
-```ts
+// use
+const date = new Date();
+const formattedDate = formatter.format(date);
+```
+
+## Playground
+
+```ts:datetime-format.ts
 const date = new Date();
 const locales = ['en-US', 'en-GB', 'en-CA'];
 const options = {
@@ -50,7 +68,7 @@ const options = {
   minute: '2-digit'
 };
 
-for (let locale of locales) {
+for (const locale of locales) {
   const formatter = new Intl.DateTimeFormat(locale, options);
   const formattedDate = formatter.format(date);
   console.log(`formattedDate: ${locale} -->`, formattedDate);
