@@ -26,8 +26,7 @@ export default Post;
 
 export const getStaticProps = async ({ params }) => {
   const post = await getPost(params.slug);
-
-  const mdxSource = await serialize(post.content, {
+  const options: any = {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
@@ -45,7 +44,9 @@ export const getStaticProps = async ({ params }) => {
       ],
       format: 'mdx'
     }
-  });
+  };
+
+  const mdxSource = await serialize(post.content, options);
 
   return {
     props: {
