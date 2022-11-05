@@ -5,12 +5,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Oleg Chursin</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-          <meta property="og:title" content="Oleg Chursin" key="title" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
