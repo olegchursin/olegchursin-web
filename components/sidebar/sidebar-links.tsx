@@ -76,7 +76,7 @@ const sidebarLinks = [
 ];
 
 const SidebarLinks: FC = () => {
-  const [{ sidebarOpen }] = useAtom(uiAtom);
+  const [{ sidebarFullWidth }] = useAtom(uiAtom);
   const router = useRouter();
 
   const listItem = item => {
@@ -100,14 +100,14 @@ const SidebarLinks: FC = () => {
             {item.icon && <span>{item.icon}</span>}
             <span
               className={clsx('origin-left duration-200', {
-                hidden: !sidebarOpen,
+                hidden: !sidebarFullWidth,
                 'ml-4': item.icon
               })}
             >
               {item.title}
             </span>
           </div>
-          {item.isExternal && sidebarOpen ? <FaExternalLinkAlt /> : null}
+          {item.isExternal && sidebarFullWidth ? <FaExternalLinkAlt /> : null}
         </>
       </li>
     );

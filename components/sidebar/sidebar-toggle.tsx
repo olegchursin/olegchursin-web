@@ -5,10 +5,10 @@ import { uiAtom } from '../../utils/store';
 import { useAtom } from 'jotai';
 
 const SidebarToggle: FC = () => {
-  const [{ sidebarOpen }, setOpen] = useAtom(uiAtom);
+  const [{ sidebarFullWidth }, setFullWidth] = useAtom(uiAtom);
 
-  const toggleSidebarOpen = () => {
-    setOpen({ sidebarOpen: !sidebarOpen });
+  const toggleSidebarFullWidth = () => {
+    setFullWidth({ sidebarFullWidth: !sidebarFullWidth });
   };
 
   return (
@@ -16,9 +16,9 @@ const SidebarToggle: FC = () => {
       <FaChevronLeft
         className={clsx(
           'absolute right-7 bottom-4 h-6 w-6 cursor-pointer dark:text-gray-100',
-          { 'rotate-180': !sidebarOpen }
+          { 'rotate-180': !sidebarFullWidth }
         )}
-        onClick={toggleSidebarOpen}
+        onClick={toggleSidebarFullWidth}
       />
     </div>
   );

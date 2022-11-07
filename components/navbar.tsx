@@ -2,6 +2,7 @@ import ThemeSwitch from './theme-switch';
 import { FC } from 'react';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
+import Hamburger from './hamburger';
 
 const Navbar: FC = () => {
   const router = useRouter();
@@ -15,6 +16,9 @@ const Navbar: FC = () => {
       )}
     >
       <div className="flex place-items-center justify-between py-4 px-6">
+        <div className="md:hidden">
+          <Hamburger />
+        </div>
         <div className="capitalize">{activePath}</div>
         <ThemeSwitch />
       </div>

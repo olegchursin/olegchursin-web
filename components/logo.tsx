@@ -5,13 +5,13 @@ import { uiAtom } from '../utils/store';
 import { useAtom } from 'jotai';
 
 const Logo: FC = () => {
-  const [{ sidebarOpen }] = useAtom(uiAtom);
+  const [{ sidebarFullWidth }] = useAtom(uiAtom);
 
   return (
     <Link href="/">
       <div
         className={clsx('flex cursor-pointer items-center', {
-          'justify-center': !sidebarOpen
+          'justify-center': !sidebarFullWidth
         })}
       >
         <img
@@ -22,7 +22,7 @@ const Logo: FC = () => {
           className={clsx(
             'ml-4 origin-left font-montserrat text-xl font-medium text-transparent',
             'bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text',
-            { hidden: !sidebarOpen }
+            { hidden: !sidebarFullWidth }
           )}
         >
           Oleg&nbsp;Chursin

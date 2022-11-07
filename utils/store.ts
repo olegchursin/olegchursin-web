@@ -1,5 +1,7 @@
 import { atom } from 'jotai';
 
 export const uiAtom = atom({
-  sidebarOpen: true
+  sidebarFullWidth: true
 });
+
+export const sidebarOpenAtom = atom(false);
