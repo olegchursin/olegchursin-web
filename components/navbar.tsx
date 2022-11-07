@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import Hamburger from './hamburger';
+import Logo from './logo';
 
 const Navbar: FC = () => {
   const router = useRouter();
@@ -11,7 +12,7 @@ const Navbar: FC = () => {
   return (
     <div
       className={clsx(
-        'sticky top-0 z-10 border-b-[.5px] border-slate-400 dark:border-slate-700',
+        'sticky top-0 z-10 h-[72px] border-b-[.5px] border-slate-400 dark:border-slate-700',
         'bg-gray-100 bg-opacity-70 backdrop-blur-lg backdrop-filter dark:bg-gray-900 dark:bg-opacity-70'
       )}
     >
@@ -19,7 +20,10 @@ const Navbar: FC = () => {
         <div className="md:hidden">
           <Hamburger />
         </div>
-        <div className="capitalize">{activePath}</div>
+        <div className="hidden capitalize md:block">{activePath}</div>
+        <div className="duration-300 md:hidden">
+          <Logo showPhoto={false} />
+        </div>
         <ThemeSwitch />
       </div>
     </div>
