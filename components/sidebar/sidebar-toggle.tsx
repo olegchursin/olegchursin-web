@@ -12,7 +12,7 @@ const SidebarToggle: FC = () => {
   };
 
   return (
-    <div className="p-4 duration-300 dark:bg-gray-800">
+    <div className="hidden p-4 duration-300 dark:bg-gray-800 md:block">
       <FaChevronLeft
         className={clsx(
           'absolute right-7 bottom-4 h-6 w-6 cursor-pointer dark:text-gray-100',
