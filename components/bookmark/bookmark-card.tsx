@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { FC } from 'react';
+import TitledBadge from '../titled-badge';
 import { FaExternalLinkSquareAlt } from 'react-icons/fa';
+import { FC } from 'react';
 
 interface BookmarkCardProps {
   readonly bookmark: any;
@@ -13,7 +14,7 @@ const BookmarkCard: FC<BookmarkCardProps> = ({ bookmark, index }) => {
 
   return (
     <a
-      href={bookmark.giveen_url ?? bookmark.resolved_url}
+      href={bookmark.given_url ?? bookmark.resolved_url}
       target="_blank"
       rel="noopener"
     >
@@ -25,9 +26,7 @@ const BookmarkCard: FC<BookmarkCardProps> = ({ bookmark, index }) => {
         )}
       >
         <div className="flex flex-col gap-4 md:flex-row">
-          <div className="flex h-10 w-10 flex-shrink-0 flex-grow-0 basis-10 items-center justify-center rounded-lg bg-gray-300 dark:bg-gray-600">
-            {title[0]}
-          </div>
+          <TitledBadge title={title} />
 
           <div className="font-medium dark:text-white">
             <div className="md:-mt-2">{title}</div>

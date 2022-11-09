@@ -14,13 +14,16 @@ const Bookmarks: NextPage<any> = () => {
   if (error) return <div>Request Failed</div>;
   if (isLoading) return <LoadingIndicator />;
 
-  console.log('data', data);
-
   return (
     <Article>
       <h1>
         <GradientText text="Bookmarks" />
       </h1>
+      <p>
+        Curated list of dev tools and resources pulled via API from my
+        <code>getpocket.com</code> list
+      </p>
+
       <BookmarksGrid bookmarks={data.list} />
     </Article>
   );
