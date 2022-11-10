@@ -1,11 +1,9 @@
 import Article from '../components/article';
-import clsx from 'clsx';
 import GradientText from '../components/gradient-text';
-import Image from 'next/image';
+import PhotoGrid from '../components/photo/photo-grid';
 import { photoResources } from '../utils/photo-resources';
 
 import type { NextPage } from 'next';
-import PhotoGrid from '../components/photo/photo-grid';
 
 const Photography: NextPage<any> = () => {
   return (
