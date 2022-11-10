@@ -16,7 +16,7 @@ const Sidebar: FC = () => {
         `${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`,
         'absolute top-0 left-0 z-30 md:translate-x-0',
         'transition duration-300 ease-in-out md:relative',
-        'h-screen w-72 bg-gray-200',
+        'h-screen w-full bg-gray-200 md:w-72',
         'dark:bg-gray-800 dark:text-white',
         { 'w-20': !sidebarFullWidth }
       )}

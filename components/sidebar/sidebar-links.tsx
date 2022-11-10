@@ -25,7 +25,7 @@ import {
   FaWrench
 } from 'react-icons/fa';
 import { FC } from 'react';
-import { uiAtom } from '../../utils/store';
+import { sidebarOpenAtom, uiAtom } from '../../utils/store';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 
@@ -98,7 +98,13 @@ const sidebarLinks: SidebarLink[] = [
 
 const SidebarLinks: FC = () => {
   const [{ sidebarFullWidth }] = useAtom(uiAtom);
+  const [sidebarOpen, setOpen] = useAtom(sidebarOpenAtom);
   const router = useRouter();
+
+  const handleClick = () => {
+    console.log('click');
+    setOpen(false);
+  };
 
   const listItem = (item: SidebarLink) => {
     return (
@@ -153,7 +159,7 @@ const SidebarLinks: FC = () => {
             } else {
               return (
                 <Link key={index} href={item.url ?? {}}>
-                  {listItem(item)}
+                  <span onClick={handleClick}>{listItem(item)}</span>
                 </Link>
               );
             }
