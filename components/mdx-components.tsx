@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const CustomH2 = ({ id, ...rest }) => {
+function CustomH2({ id, ...rest }: { id: string }) {
   if (id) {
     return (
       <Link href={`#${id}`}>
@@ -10,9 +10,9 @@ const CustomH2 = ({ id, ...rest }) => {
     );
   }
   return <h2 {...rest} />;
-};
+}
 
-const CustomLink = props => {
+function CustomLink(props: any) {
   const href = props.href;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
@@ -25,9 +25,9 @@ const CustomLink = props => {
   }
 
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
-};
+}
 
-function RoundedImage(props) {
+function RoundedImage(props: any) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
 

@@ -24,7 +24,7 @@ function Post({ frontmatter, content }: PostProps) {
 
 export default Post;
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: { params: any }) => {
   const post = await getPost(params.slug);
   const options: any = {
     mdxOptions: {

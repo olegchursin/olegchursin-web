@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 export interface IconLink {
-  readonly icon: any;
+  readonly icon: JSX.Element;
   readonly url: string;
   readonly label: string;
 }

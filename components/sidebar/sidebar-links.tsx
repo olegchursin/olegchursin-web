@@ -29,13 +29,22 @@ import { uiAtom } from '../../utils/store';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 
-const sidebarLinks = [
+interface SidebarLink {
+  readonly title: string;
+  readonly icon?: JSX.Element;
+  readonly url?: string;
+  readonly sectionTitle?: boolean;
+  readonly hidden?: boolean;
+  readonly isExternal?: boolean;
+}
+
+const sidebarLinks: SidebarLink[] = [
   { title: 'Home', icon: <FaHome />, url: HOME_PATH },
   { title: 'Work', icon: <FaLaptopCode />, url: WORK_PATH },
   { title: 'Writing', icon: <FaFileAlt />, url: WRITING_PATH },
   { title: 'Me', sectionTitle: true },
   { title: 'Bookmarks', icon: <FaBookmark />, url: BOOKMARKS_PATH },
-  { title: 'Uses ', icon: <FaWrench />, url: USES_PATH },
+  { title: 'Uses ', icon: <FaWrench />, url: USES_PATH, hidden: true },
   { title: 'Photography', icon: <FaCamera />, url: PHOTOGRAPHY_PATH },
   { title: 'Online', sectionTitle: true },
   {
@@ -86,7 +95,7 @@ const SidebarLinks: FC = () => {
   const [{ sidebarFullWidth }] = useAtom(uiAtom);
   const router = useRouter();
 
-  const listItem = item => {
+  const listItem = (item: SidebarLink) => {
     return (
       <li
         className={clsx(
@@ -124,23 +133,25 @@ const SidebarLinks: FC = () => {
     <div className="overflow-scroll pb-8">
       <ul className="pt-6">
         {sidebarLinks.map((item, index) => {
-          if (item.isExternal) {
-            return (
-              <a
-                key={index}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {listItem(item)}
-              </a>
-            );
-          } else {
-            return (
-              <Link key={index} href={item.url ?? {}}>
-                {listItem(item)}
-              </Link>
-            );
+          if (!item.hidden) {
+            if (item.isExternal) {
+              return (
+                <a
+                  key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {listItem(item)}
+                </a>
+              );
+            } else {
+              return (
+                <Link key={index} href={item.url ?? {}}>
+                  {listItem(item)}
+                </Link>
+              );
+            }
           }
         })}
       </ul>
