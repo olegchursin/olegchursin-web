@@ -16,6 +16,7 @@ const IconLinkList: FC<IconLinkListProps> = ({ links }) => {
       {links.map(link => {
         return (
           <a
+            key={link.url}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"

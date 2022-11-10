@@ -14,7 +14,7 @@ const Photography: NextPage<any> = () => {
 
       <div className="flex flex-col gap-24">
         {photoResources.map(resource => {
-          return <PhotoGrid resource={resource} />;
+          return <PhotoGrid key={resource.title} resource={resource} />;
         })}
       </div>
     </Article>

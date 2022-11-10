@@ -38,6 +38,7 @@ const PostListItem: FC<PostListItemProps> = ({
             src={imgSrc}
             width="100px"
             height="100px"
+            alt={title}
           />
         </div>
         <div className="border-t-[.5px] border-slate-400 py-2 px-4 text-xs dark:border-slate-700">

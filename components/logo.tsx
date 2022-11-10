@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import { FC } from 'react';
 import { uiAtom } from '../utils/store';
 import { useAtom } from 'jotai';
+import Image from 'next/image';
 
 interface LogoProps {
   readonly showPhoto?: boolean;
@@ -12,9 +13,12 @@ const Logo: FC<LogoProps> = ({ showPhoto = true }) => {
   const [{ sidebarFullWidth }] = useAtom(uiAtom);
 
   const photo = showPhoto ? (
-    <img
+    <Image
       src="https://ik.imagekit.io/olegchursin/oc-profile_LypqvWxYJ.jpeg?tr=w-300,h-300"
-      className="w-10 rounded-full duration-300"
+      className="rounded-full duration-300"
+      width="40px"
+      height="40px"
+      alt="Oleg Chursin"
     />
   ) : null;
 

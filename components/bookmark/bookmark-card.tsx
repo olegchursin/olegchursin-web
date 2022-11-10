@@ -16,7 +16,7 @@ const BookmarkCard: FC<BookmarkCardProps> = ({ bookmark, index }) => {
     <a
       href={bookmark.given_url ?? bookmark.resolved_url}
       target="_blank"
-      rel="noopener"
+      rel="noreferrer noopener"
     >
       <div
         className={clsx(
