@@ -1,5 +1,4 @@
-import { FaInstagram, FaUnsplash } from 'react-icons/fa';
-import { HiCamera } from 'react-icons/hi2';
+import { FaCamera, FaInstagram, FaUnsplash } from 'react-icons/fa';
 
 export const photoResources = [
   {
@@ -38,7 +37,7 @@ export const photoResources = [
     links: [
       {
         url: 'https://lifestyle.olegchursin.com/',
-        icon: <HiCamera />,
+        icon: <FaCamera />,
         label: 'Website'
       },
       {
@@ -81,7 +80,7 @@ export const photoResources = [
     links: [
       {
         url: 'https://wedding-olegchursin.netlify.app/',
-        icon: <HiCamera />,
+        icon: <FaCamera />,
         label: 'Website'
       },
       {
