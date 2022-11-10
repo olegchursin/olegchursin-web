@@ -1,10 +1,14 @@
 import type { NextPage } from 'next';
+import Article from '../components/article';
+import GradientText from '../components/gradient-text';
 
 const Uses: NextPage<any> = () => {
   return (
-    <div>
-      <h1 className="mt-2 text-3xl font-bold">Uses</h1>
-    </div>
+    <Article>
+      <h1>
+        <GradientText text="Uses" />
+      </h1>
+    </Article>
   );
 };
 

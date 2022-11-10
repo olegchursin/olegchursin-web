@@ -28,6 +28,11 @@ const mediaLinks: MediaLinkProps[] = [
     ctaText: 'Read'
   },
   {
+    title: 'Behance',
+    url: 'https://www.behance.net/olegchursin',
+    ctaText: 'Watch'
+  },
+  {
     title: 'Unsplash',
     url: 'https://unsplash.com/@olegchursin_photo/stats?stats=all-time',
     ctaText: 'Watch'

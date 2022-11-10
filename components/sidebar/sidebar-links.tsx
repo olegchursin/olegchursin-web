@@ -9,6 +9,7 @@ import {
 } from '../../utils/paths';
 import { clsx } from 'clsx';
 import {
+  FaBehance,
   FaBookmark,
   FaCamera,
   FaDev,
@@ -65,6 +66,12 @@ const sidebarLinks = [
     title: 'Medium',
     icon: <FaMedium />,
     url: 'https://medium.com/@olegchursin',
+    isExternal: true
+  },
+  {
+    title: 'Behance',
+    icon: <FaBehance />,
+    url: 'https://www.behance.net/olegchursin',
     isExternal: true
   },
   {
