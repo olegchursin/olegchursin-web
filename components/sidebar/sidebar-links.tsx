@@ -102,7 +102,6 @@ const SidebarLinks: FC = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    console.log('click');
     setOpen(false);
   };
 
