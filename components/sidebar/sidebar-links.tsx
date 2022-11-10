@@ -42,8 +42,13 @@ const sidebarLinks: SidebarLink[] = [
   { title: 'Home', icon: <FaHome />, url: HOME_PATH },
   { title: 'Work', icon: <FaLaptopCode />, url: WORK_PATH },
   { title: 'Writing', icon: <FaFileAlt />, url: WRITING_PATH },
-  { title: 'Me', sectionTitle: true },
-  { title: 'Bookmarks', icon: <FaBookmark />, url: BOOKMARKS_PATH },
+  { title: 'Me', sectionTitle: true, hidden: true },
+  {
+    title: 'Bookmarks',
+    icon: <FaBookmark />,
+    url: BOOKMARKS_PATH,
+    hidden: true
+  },
   { title: 'Uses ', icon: <FaWrench />, url: USES_PATH, hidden: true },
   { title: 'Photography', icon: <FaCamera />, url: PHOTOGRAPHY_PATH },
   { title: 'Online', sectionTitle: true },
