@@ -2,7 +2,6 @@ import Badge from '../badge';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import { formatDateTime } from '../../utils/datetime';
 import { WRITING_PATH } from '../../utils/paths';
 
 interface PostListItemProps {
@@ -22,9 +21,6 @@ const PostListItem: FC<PostListItemProps> = ({
   tag,
   title
 }) => {
-  const formattedDate = formatDateTime(new Date(publishedAt));
-  const dotSeparator = <span>&nbsp;&#x2022;&nbsp;</span>;
-
   return (
     <Link href={`${WRITING_PATH}/${slug}`}>
       <div className="flex cursor-pointer flex-col justify-between rounded-lg bg-white dark:bg-gray-800">
@@ -42,8 +38,6 @@ const PostListItem: FC<PostListItemProps> = ({
           />
         </div>
         <div className="border-t-[.5px] border-slate-400 py-2 px-4 text-xs dark:border-slate-700">
-          <span>{formattedDate}</span>
-          {dotSeparator}
           <span>{readingTime}</span>
         </div>
       </div>
