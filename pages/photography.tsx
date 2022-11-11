@@ -12,7 +12,7 @@ const Photography: NextPage<any> = () => {
         <GradientText text="Photography" />
       </h1>
 
-      <div className="flex flex-col gap-24">
+      <div className="flex flex-col gap-12 md:gap-24">
         {photoResources.map(resource => {
           return <PhotoGrid key={resource.title} resource={resource} />;
         })}

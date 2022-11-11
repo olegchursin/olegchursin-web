@@ -13,7 +13,7 @@ export const photoResources = [
     ],
     links: [
       {
-        url: 'https://lifestyle.olegchursin.com/',
+        url: 'https://www.instagram.com/travel.olegchursin/',
         icon: <FaInstagram />,
         label: 'Instagram'
       },
@@ -36,14 +36,14 @@ export const photoResources = [
     ],
     links: [
       {
-        url: 'https://lifestyle.olegchursin.com/',
-        icon: <FaCamera />,
-        label: 'Website'
-      },
-      {
         url: 'https://www.instagram.com/lifestyle.olegchursin/',
         icon: <FaInstagram />,
         label: 'Instagram'
+      },
+      {
+        url: 'https://lifestyle.olegchursin.com/',
+        icon: <FaCamera />,
+        label: 'Website'
       }
     ]
   },
@@ -79,14 +79,14 @@ export const photoResources = [
     ],
     links: [
       {
-        url: 'https://wedding-olegchursin.netlify.app/',
-        icon: <FaCamera />,
-        label: 'Website'
-      },
-      {
         url: 'https://www.instagram.com/wedding.olegchursin/',
         icon: <FaInstagram />,
         label: 'Instagram'
+      },
+      {
+        url: 'https://wedding-olegchursin.netlify.app/',
+        icon: <FaCamera />,
+        label: 'Website'
       }
     ]
   }
