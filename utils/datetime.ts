@@ -11,5 +11,5 @@ export function formatDateTime(
   locale: string = DEFAULT_LOCALE
 ): string {
   const formatter = new Intl.DateTimeFormat(locale, options);
-  return formatter.format(date);
+  return formatter.format(new Date(date));
 }
