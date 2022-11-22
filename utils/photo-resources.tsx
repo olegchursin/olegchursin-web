@@ -41,7 +41,7 @@ export const photoResources = [
         label: 'Instagram'
       },
       {
-        url: 'https://lifestyle.olegchursin.com/',
+        url: 'https://lifestyle.olegchursin.com',
         icon: <FaCamera />,
         label: 'Website'
       }
@@ -70,12 +70,12 @@ export const photoResources = [
   {
     title: 'Wedding',
     photos: [
-      'https://wedding-olegchursin.netlify.app/images/oleg-chursin-wedding-photography-JJ.jpg',
-      'https://wedding-olegchursin.netlify.app/images/gallery-oleg-chursin-wedding-photography-RA-006.jpg',
-      'https://wedding-olegchursin.netlify.app/images/gallery-oleg-chursin-wedding-photography-roupalina-001-preview.jpg',
-      'https://wedding-olegchursin.netlify.app/images/gallery-oleg-chursin-wedding-photography-TM-005.jpg',
-      'https://wedding-olegchursin.netlify.app/images/gallery-oleg-chursin-wedding-photography-RD-002.jpg',
-      'https://wedding-olegchursin.netlify.app/images/gallery-oleg-chursin-wedding-photography-MM-wed-05.jpg'
+      'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-JJ-008.jpg',
+      'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-RA-006.jpg',
+      'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-roupalina-017.jpg',
+      'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-TM-005.jpg',
+      'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-RD-002.jpg',
+      'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-MM-wed-05.jpg'
     ],
     links: [
       {
@@ -84,7 +84,7 @@ export const photoResources = [
         label: 'Instagram'
       },
       {
-        url: 'https://wedding-olegchursin.netlify.app/',
+        url: 'https://wedding.olegchursin.com',
         icon: <FaCamera />,
         label: 'Website'
       }

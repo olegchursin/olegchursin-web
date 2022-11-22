@@ -6,7 +6,7 @@ const nextConfig = {
     domains: [
       'ik.imagekit.io',
       'live.staticflickr.com',
-      'wedding-olegchursin.netlify.app'
+      'wedding.olegchursin.com'
     ]
   }
 };
