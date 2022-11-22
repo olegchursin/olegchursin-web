@@ -16,15 +16,13 @@ const SidebarHeader = () => {
   return (
     <div
       className={clsx(
-        'flex h-[72px] flex-row-reverse items-center justify-between md:flex-row',
+        'flex h-[72px] items-center justify-between',
         'border-b-[.5px] border-slate-400 p-4 duration-300',
         'dark:border-slate-700',
         { 'pl-6': sidebarFullWidth }
       )}
     >
-      <span className="hidden md:block">
-        <Logo />
-      </span>
+      <Logo />
       <div className="cursor-pointer md:hidden" onClick={closeSidebar}>
         <FaTimes />
       </div>
