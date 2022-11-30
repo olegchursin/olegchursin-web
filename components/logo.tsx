@@ -16,8 +16,8 @@ const Logo: FC<LogoProps> = ({ showPhoto = true }) => {
     <Image
       src="https://ik.imagekit.io/olegchursin/oc-profile_LypqvWxYJ.jpeg?tr=w-300,h-300"
       className="rounded-full duration-300"
-      width="40px"
-      height="40px"
+      width="40"
+      height="40"
       alt="Oleg Chursin"
     />
   ) : null;
