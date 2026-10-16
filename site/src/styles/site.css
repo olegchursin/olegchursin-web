@@ -272,5 +272,5 @@ oc-section[id] {
 
 /* the filter wraps the list section, so it is first of its type there */
 site-post-filter > oc-section {
-  margin-top: var(--oc-space-9);
+  margin-top: var(--oc-section-gap, clamp(4rem, 2.5rem + 4vw, 6rem));
 }

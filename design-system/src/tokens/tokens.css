@@ -10,13 +10,13 @@
   --oc-paper-2: #e3e2dd; /* recessed surface, code, image placeholders */
   --oc-ink: #000000; /* text, rules, solid shapes */
   --oc-ink-2: #3b3b39; /* secondary text */
-  --oc-ink-3: #686763; /* meta text — AA on paper */
+  --oc-ink-3: #605f5b; /* meta text — AA on paper and paper-2 */
   --oc-line: rgb(0 0 0 / 0.16); /* hairlines, grid guides */
   --oc-red: #e8321e; /* blocks, dots, large type only (3:1) */
   --oc-red-text: #c22612; /* red at text sizes — AA on paper */
-  --oc-on-red: #ffffff;
+  --oc-on-red: #000000; /* black on red: 4.9:1 (white would be 4.3:1) */
   --oc-selection: #e8321e;
-  --oc-on-selection: #ffffff;
+  --oc-on-selection: #000000;
   color-scheme: light;
 
   /* ── Type ─────────────────────────────────────────────── */

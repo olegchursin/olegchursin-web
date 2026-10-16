@@ -39,6 +39,10 @@ export class OcPageLayout extends LitElement {
         grid-column: 1 / -1;
         min-width: 0;
       }
+      /* stacked: the title leads, facts follow */
+      .title {
+        order: -1;
+      }
       @media (min-width: ${unsafeCSS(bp.md)}) {
         :host {
           --oc-section-columns: 12;
@@ -54,6 +58,9 @@ export class OcPageLayout extends LitElement {
         :host {
           --oc-section-columns: 9;
           --oc-section-label-span: 2;
+        }
+        .title {
+          order: 0;
         }
         .rail {
           grid-column: 1 / span 3;

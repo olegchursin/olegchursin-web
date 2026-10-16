@@ -71,6 +71,8 @@ export class OcLink extends LitElement {
       .arrow {
         display: inline-block;
         margin-inline-start: 0.15em;
+        /* information, not display: stays text-sized inside large type */
+        font-size: min(1em, 1.125rem);
         font-weight: var(--oc-weight-regular);
         transition: transform var(--oc-duration-fast) var(--oc-ease);
       }

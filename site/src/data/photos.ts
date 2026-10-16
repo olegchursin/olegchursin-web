@@ -28,18 +28,27 @@ export const collections: readonly Collection[] = [
     photos: [
       {
         src: ik('travel-yosemite-2_00bCn8ymi.jpg'),
-        alt: 'Yosemite Valley under clouds'
+        alt: 'El Capitan and Yosemite Valley at dusk'
       },
       {
         src: ik('travel-joshue-tree_DA_GhkMIJC.jpg'),
-        alt: 'Joshua trees in the desert'
+        alt: 'Joshua tree under a purple sky at dusk'
       },
-      { src: ik('travel-hawaii_rg30oX6C1.jpg'), alt: 'Hawaiian coastline' },
-      { src: ik('travel-half-dome_E59hqHVTS.jpg'), alt: 'Half Dome, Yosemite' },
-      { src: ik('travel-hawaii_H3KJ3yfxn.jpg'), alt: 'Hawaii' },
+      {
+        src: ik('travel-hawaii_rg30oX6C1.jpg'),
+        alt: 'Fisherman silhouetted against a sunset over the ocean, Hawaii'
+      },
+      {
+        src: ik('travel-half-dome_E59hqHVTS.jpg'),
+        alt: 'Half Dome at sunset, Yosemite'
+      },
+      {
+        src: ik('travel-hawaii_H3KJ3yfxn.jpg'),
+        alt: 'Rainbow over a beach in Hawaii'
+      },
       {
         src: ik('travel-grand-tetons_P0rr5WvQpc.jpg'),
-        alt: 'Grand Tetons with horses grazing'
+        alt: 'Horses grazing in an autumn meadow below the Grand Tetons'
       }
     ],
     links: [
@@ -53,31 +62,31 @@ export const collections: readonly Collection[] = [
   {
     id: 'lifestyle',
     title: 'Lifestyle',
-    description: 'People in their own places, in New York and around it.',
+    description: 'Portraits and lifestyle sessions.',
     photos: [
       {
         src: 'https://live.staticflickr.com/65535/52403019474_be47756e14_b.jpg',
-        alt: 'Lifestyle portrait 1'
+        alt: 'Woman in a black dress against a rainbow-painted brick wall'
       },
       {
         src: 'https://live.staticflickr.com/65535/52403235333_656b2ee4dc_b.jpg',
-        alt: 'Lifestyle portrait 2'
+        alt: 'Portrait of a man in a patterned shirt on a dark background'
       },
       {
         src: 'https://live.staticflickr.com/65535/52403235438_41a16bbef2_b.jpg',
-        alt: 'Lifestyle portrait 3'
+        alt: 'Portrait of a woman with windswept hair on a dark background'
       },
       {
         src: 'https://live.staticflickr.com/65535/52403019209_5fbe7f5fc6_b.jpg',
-        alt: 'Lifestyle portrait 4'
+        alt: 'Woman with long blond hair against a blue brick wall'
       },
       {
         src: 'https://live.staticflickr.com/65535/52402222692_0348eddfd7_b.jpg',
-        alt: 'Lifestyle portrait 5'
+        alt: 'Woman leaning on a bridge railing in a park'
       },
       {
         src: 'https://live.staticflickr.com/65535/52403019199_1062055a40_b.jpg',
-        alt: 'Lifestyle portrait 6'
+        alt: 'Red-haired woman against a blue brick wall'
       }
     ],
     links: [
@@ -94,17 +103,29 @@ export const collections: readonly Collection[] = [
   {
     id: 'family',
     title: 'Family',
-    description: 'Family sessions: kids, siblings, parents, outdoors.',
+    description: 'Family sessions, mostly kids.',
     photos: [
-      { src: ik('family-yellow_mQwUi-Jgi.jpg'), alt: 'Child in a yellow coat' },
-      { src: ik('family-smile_VUrFYnSw7.jpg'), alt: 'Smiling child' },
-      { src: ik('family-beret_GdSXHrJPh.jpg'), alt: 'Child in a beret' },
+      {
+        src: ik('family-yellow_mQwUi-Jgi.jpg'),
+        alt: 'Girl in a pink dress and sun hat against a yellow wall'
+      },
+      {
+        src: ik('family-smile_VUrFYnSw7.jpg'),
+        alt: 'Close-up of a smiling blond child'
+      },
+      { src: ik('family-beret_GdSXHrJPh.jpg'), alt: 'Child in a red beret' },
       {
         src: ik('family-crown_UdC5oPRvOJ.jpg'),
-        alt: 'Child wearing a paper crown'
+        alt: 'Girl wearing a pink crown'
       },
-      { src: ik('family-hoodie_PWRBFsc56.jpg'), alt: 'Child in a hoodie' },
-      { src: ik('family-siblings_GbuiWMdHpU.jpg'), alt: 'Siblings together' }
+      {
+        src: ik('family-hoodie_PWRBFsc56.jpg'),
+        alt: 'Child in a knit hoodie looking up and smiling'
+      },
+      {
+        src: ik('family-siblings_GbuiWMdHpU.jpg'),
+        alt: 'Siblings lying side by side, one in a knit hat'
+      }
     ],
     links: [
       {
@@ -116,31 +137,31 @@ export const collections: readonly Collection[] = [
   {
     id: 'wedding',
     title: 'Wedding',
-    description: 'Weddings and engagements, documentary style.',
+    description: 'Ceremonies, couples and wedding parties.',
     photos: [
       {
         src: 'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-JJ-008.jpg',
-        alt: 'Wedding couple'
+        alt: 'Bride in a flower crown laughing as the groom kisses her cheek'
       },
       {
         src: 'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-RA-006.jpg',
-        alt: 'Wedding ceremony'
+        alt: 'Bride in a veil by a bright window'
       },
       {
         src: 'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-roupalina-017.jpg',
-        alt: 'Wedding portrait'
+        alt: 'Wedding party posing on a garden staircase'
       },
       {
         src: 'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-TM-005.jpg',
-        alt: 'Couple portrait'
+        alt: 'Bride and groom, with a portrait of the smiling groom'
       },
       {
         src: 'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-RD-002.jpg',
-        alt: 'Wedding day detail'
+        alt: 'Wedding ceremony in a church'
       },
       {
         src: 'https://wedding.olegchursin.com/images/gallery-oleg-chursin-wedding-photography-MM-wed-05.jpg',
-        alt: 'Wedding couple outdoors'
+        alt: 'Two grooms in tuxedos standing in a doorway'
       }
     ],
     links: [
@@ -158,5 +179,5 @@ export const collections: readonly Collection[] = [
 
 export const parkSlope = {
   src: ik('park-slope_-pY7uwDVs.png'),
-  alt: 'Brownstones in Park Slope, Brooklyn'
+  alt: 'Illustrated map of Park Slope, Brooklyn'
 };

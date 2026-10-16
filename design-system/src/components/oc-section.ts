@@ -32,7 +32,7 @@ export class OcSection extends LitElement {
       :host {
         display: block;
         container-type: inline-size;
-        margin-top: var(--oc-space-9);
+        margin-top: var(--oc-section-gap, clamp(4rem, 2.5rem + 4vw, 6rem));
       }
       :host(:first-of-type) {
         margin-top: 0;

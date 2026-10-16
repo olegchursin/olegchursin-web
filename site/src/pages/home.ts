@@ -41,7 +41,7 @@ export function homePage(posts: readonly Post[]): Page {
               width="1200"
               height="750"
               ratio="4/5"
-              treatment="halftone"
+              treatment="grayscale"
               loading="eager"
             ></oc-image>
             <p class="home-poster__caption">Park Slope, Brooklyn.</p>

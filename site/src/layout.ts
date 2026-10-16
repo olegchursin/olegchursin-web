@@ -8,7 +8,9 @@ export function shell(
   content: TemplateResult
 ): TemplateResult {
   const year = new Date().getFullYear();
-  return html`<a class="oc-skip-link" href="#main">Skip to content</a>
+  return html`<nav aria-label="Skip link">
+      <a class="oc-skip-link" href="#main">Skip to content</a>
+    </nav>
     <oc-site-header home-href="/">
       <span slot="brand">Oleg<br />Chursin</span>
       ${nav.map(
