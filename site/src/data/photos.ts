@@ -176,8 +176,3 @@ export const collections: readonly Collection[] = [
     ]
   }
 ];
-
-export const parkSlope = {
-  src: ik('park-slope_-pY7uwDVs.png'),
-  alt: 'Illustrated map of Park Slope, Brooklyn'
-};

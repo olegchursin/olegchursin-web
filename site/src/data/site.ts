@@ -2,7 +2,7 @@ export const site = {
   name: 'Oleg Chursin',
   url: 'https://olegchursin.com',
   description:
-    'Oleg Chursin is a senior software developer in Brooklyn, New York, with a background in graphic design. Writing on web development, and photography.',
+    'Oleg Chursin is a Senior Software Engineering Manager at Aon in Brooklyn, New York, with a background in graphic design and cognitive linguistics. Writing, work and photography.',
   locale: 'en-US',
   place: 'Brooklyn, New York',
   coordinates: '40.67° N, 73.98° W'

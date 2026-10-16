@@ -80,57 +80,6 @@ main:focus {
   margin: var(--oc-space-5) 0 0;
 }
 
-/* ── Home: poster hero ─────────────────────────────────────────────────── */
-.home-hero {
-  display: grid;
-  gap: var(--oc-space-8);
-}
-
-.home-poster {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: var(--oc-gutter);
-  row-gap: var(--oc-space-3);
-}
-
-.home-poster__block {
-  grid-column: 1;
-  grid-row: 1;
-  background: var(--oc-red);
-}
-
-.home-poster__photo {
-  grid-column: 2 / -1;
-  grid-row: 1;
-}
-
-.home-poster__caption {
-  grid-column: 2 / -1;
-  margin: 0;
-  font-size: var(--oc-text-sm);
-  color: var(--oc-ink-3);
-}
-
-@media (min-width: 48rem) {
-  .home-poster {
-    grid-template-columns: repeat(
-      var(--oc-section-columns, 12),
-      minmax(0, 1fr)
-    );
-  }
-  .home-poster__block {
-    grid-column: 1 / span 2;
-  }
-  .home-poster__photo {
-    grid-column: 3 / span 5;
-  }
-  .home-poster__caption {
-    grid-column: 8 / -1;
-    grid-row: 1;
-    align-self: end;
-  }
-}
-
 /* ── Home: photo strip ─────────────────────────────────────────────────── */
 .photo-strip {
   display: grid;

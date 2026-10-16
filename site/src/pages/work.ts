@@ -1,17 +1,38 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Page } from '../types.ts';
-import { career, formatMonth, stack } from '../data/career.ts';
+import {
+  career,
+  earlier,
+  education,
+  formatMonth,
+  softwareSince,
+  stack,
+  yearRange,
+  type Role
+} from '../data/career.ts';
+
+const roleEntry = (role: Role) =>
+  html`<li>
+    <oc-entry href=${ifDefined(role.url)} size="lg">
+      <span slot="meta"
+        >${formatMonth(role.start)}–<br />${role.end ? formatMonth(role.end) : 'now'}</span
+      >
+      <h3>${role.title}</h3>
+      ${role.summary ? html`<span slot="detail">${role.summary}</span>` : ''}
+      <span slot="aside">${role.company}</span>
+    </oc-entry>
+  </li>`;
 
 export function workPage(): Page {
-  const first = career[career.length - 1];
-  const years = new Date().getFullYear() - Number(first.start.slice(0, 4));
+  const years = new Date().getFullYear() - softwareSince;
 
   return {
     path: '/work',
     section: '/work',
     title: 'Work',
     description:
-      'Career of Oleg Chursin: senior software developer at Aon Cyber Solutions, previously Philosophie and Human Interaction.',
+      'Career of Oleg Chursin: Senior Software Engineering Manager at Aon, technical owner of CyQu, previously Philosophie and Human Interaction.',
     body: html`<oc-page-layout>
       <div slot="meta" class="rail-facts">
         <oc-numeral size="xl">${years}</oc-numeral>
@@ -23,29 +44,15 @@ export function workPage(): Page {
 
       <oc-section rule="none" wide>
         <p class="lede">
-          From founding a web practice to building cyber insurance products at
-          Aon, always somewhere between design and engineering.
+          Engineering manager at Aon and technical owner of CyQu. Before
+          software: newspapers, marketing and a PhD in cognitive linguistics.
         </p>
       </oc-section>
 
       <oc-section rule="bar">
-        <h2 slot="label">Career</h2>
+        <h2 slot="label">Software</h2>
         <ol class="timeline" role="list">
-          ${career.map(
-            role =>
-              html`<li>
-                <oc-entry href=${role.url} size="lg">
-                  <span slot="meta"
-                    >${formatMonth(role.start)}–<br />${
-                      role.end ? formatMonth(role.end) : 'now'
-                    }</span
-                  >
-                  <h3>${role.title}</h3>
-                  ${role.summary ? html`<span slot="detail">${role.summary}</span>` : ''}
-                  <span slot="aside">${role.company}</span>
-                </oc-entry>
-              </li>`
-          )}
+          ${career.map(roleEntry)}
         </ol>
       </oc-section>
 
@@ -57,15 +64,43 @@ export function workPage(): Page {
       </oc-section>
 
       <oc-section>
-        <h2 slot="label">Background</h2>
+        <h2 slot="label">Before software</h2>
+        <ol class="timeline" role="list">
+          ${earlier.map(
+            role =>
+              html`<li>
+                <oc-entry>
+                  <span slot="meta">${yearRange(role)}</span>
+                  <h3>${role.title}</h3>
+                  ${role.summary ? html`<span slot="detail">${role.summary}</span>` : ''}
+                  <span slot="aside">${role.company}</span>
+                </oc-entry>
+              </li>`
+          )}
+        </ol>
+      </oc-section>
+
+      <oc-section>
+        <h2 slot="label">Education</h2>
+        <ol class="timeline" role="list">
+          ${education.map(
+            s =>
+              html`<li>
+                <oc-entry>
+                  <span slot="meta">${s.years}</span>
+                  <h3>${s.degree}</h3>
+                  <span slot="aside">${s.school}</span>
+                </oc-entry>
+              </li>`
+          )}
+        </ol>
+      </oc-section>
+
+      <oc-section>
+        <h2 slot="label">Elsewhere</h2>
         <div class="flow">
           <p>
-            Graphic design, digital marketing and cognitive linguistics came
-            before software. They show up as a habit: start from the content,
-            set it on a grid, and let the type carry the hierarchy.
-          </p>
-          <p>
-            Résumé and recommendations are on
+            Recommendations are on
             <oc-link href="https://www.linkedin.com/in/olegchursin/"
               >LinkedIn</oc-link
             >; code is on

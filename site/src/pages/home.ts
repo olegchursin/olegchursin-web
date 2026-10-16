@@ -1,14 +1,14 @@
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Page } from '../types.ts';
 import { site } from '../data/site.ts';
-import { career, yearRange } from '../data/career.ts';
+import { career, softwareSince, yearRange } from '../data/career.ts';
 import { profiles } from '../data/links.ts';
-import { collections, parkSlope, sized } from '../data/photos.ts';
+import { collections, sized } from '../data/photos.ts';
 import { formatShortDate, type Post } from '../content/posts.ts';
 
 export function homePage(posts: readonly Post[]): Page {
   const latest = posts.slice(0, 3);
-  const firstYear = career[career.length - 1].start.slice(0, 4);
   const strip = collections.map(c => ({ ...c.photos[0], collection: c.title }));
 
   return {
@@ -18,49 +18,42 @@ export function homePage(posts: readonly Post[]): Page {
     body: html`<oc-page-layout>
       <div slot="meta" class="rail-facts">
         <p>${site.place}<br />${site.coordinates}</p>
-        <p>Building for the web<br />since ${firstYear}</p>
+        <p>Building for the web<br />since ${softwareSince}</p>
       </div>
       <oc-display slot="title" as="h1" vertical fit="5.2" width="condensed"
         >Oleg Chursin</oc-display
       >
 
       <oc-section rule="none" wide>
-        <div class="home-hero">
-          <p class="lede">
-            Senior software developer with a background in graphic design. I
-            build cyber insurance tools at
-            <oc-link href="https://www.aon.com/cyber-solutions/">Aon</oc-link>,
-            mostly in TypeScript.
-          </p>
-          <div class="home-poster">
-            <div class="home-poster__block" aria-hidden="true"></div>
-            <oc-image
-              class="home-poster__photo"
-              src=${sized(parkSlope.src, 1200)}
-              alt=${parkSlope.alt}
-              width="1200"
-              height="750"
-              ratio="4/5"
-              treatment="grayscale"
-              loading="eager"
-            ></oc-image>
-            <p class="home-poster__caption">Park Slope, Brooklyn.</p>
-          </div>
-        </div>
+        <p class="lede">
+          Senior Software Engineering Manager at
+          <oc-link href="https://www.aon.com/cyber-solutions/">Aon</oc-link>,
+          building experiences that are as thoughtful as they are functional.
+        </p>
       </oc-section>
 
       <oc-section>
         <h2 slot="label">About</h2>
         <div class="flow">
           <p>
-            Before software I worked in graphic design and digital marketing,
-            with a background in cognitive linguistics. I care most about where
-            those meet: interfaces that are clear because their type, grid and
-            words are.
+            Currently embedded in enterprise AI, AI security, spec-driven
+            development and AI-assisted engineering tooling, while staying
+            hands-on across the frontend stack: web platform architecture, web
+            components (StencilJS, Lit), TypeScript, Angular, React, Django and
+            AWS.
           </p>
           <p>
-            Outside work I photograph people and places, and race triathlons. I
-            swam competitively for years.
+            Technical owner of CyQu, Aon’s cyber risk assessment and eSubmission
+            platform, deployed across the Americas, EMEA and APAC.
+          </p>
+          <p>
+            A background in graphic design, digital marketing and cognitive
+            linguistics quietly informs how I think about UX/UI and the people
+            using the software our team ships.
+          </p>
+          <p>
+            Outside of work: father, photographer, triathlete and former
+            competitive swimmer.
           </p>
         </div>
       </oc-section>
@@ -70,7 +63,7 @@ export function homePage(posts: readonly Post[]): Page {
         <div>
           ${career.slice(0, 3).map(
             role =>
-              html`<oc-entry href=${role.url}>
+              html`<oc-entry href=${ifDefined(role.url)}>
                 <span slot="meta">${yearRange(role)}</span>
                 <h3>${role.title}</h3>
                 <span slot="aside">${role.company}</span>
