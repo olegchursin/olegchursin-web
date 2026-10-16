@@ -4,3 +4,4 @@ import '@oc/design-system/styles.css';
 import './styles/site.css';
 import '@oc/design-system';
 import './components/site-post-filter.ts';
+import './components/illustrations/index.ts';

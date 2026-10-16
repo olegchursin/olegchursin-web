@@ -4,11 +4,19 @@
  */
 oc-prose {
   display: block;
-  max-width: var(--oc-measure);
   font-size: var(--oc-text-base);
   line-height: var(--oc-leading-body);
   color: var(--oc-ink);
   hanging-punctuation: first;
+}
+
+/* the measure applies to each block, so figures can opt out with .oc-wide */
+oc-prose > * {
+  max-width: var(--oc-measure);
+}
+
+oc-prose > .oc-wide {
+  max-width: none;
 }
 
 oc-prose > * + * {
