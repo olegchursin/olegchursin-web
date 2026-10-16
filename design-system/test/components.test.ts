@@ -315,3 +315,22 @@ describe('accessibility', () => {
     await expect(el).to.be.accessible();
   });
 });
+
+describe('oc-gallery counter', () => {
+  it('shows the position as text', async () => {
+    const src = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
+    const el = await fixture<OcGallery>(
+      html`<oc-gallery>
+        <oc-image src=${src} alt="One"></oc-image>
+        <oc-image src=${src} alt="Two"></oc-image>
+      </oc-gallery>`
+    );
+    await el.updateComplete;
+    el.openAt(1);
+    await el.updateComplete;
+    expect(
+      el.shadowRoot!.querySelector('.lb-count')!.textContent!.trim()
+    ).to.equal('2/2');
+    el.close();
+  });
+});

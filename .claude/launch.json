@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "-w", "site", "--", "--port", "5173", "--strictPort"],
+      "port": 5173
+    },
+    {
+      "name": "site-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "preview", "-w", "site", "--", "--strictPort"],
+      "port": 4173
+    },
+    {
+      "name": "design-system-docs",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "-w", "design-system", "--", "--port", "5174", "--strictPort"],
+      "port": 5174
+    }
+  ]
+}

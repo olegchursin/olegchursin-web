@@ -7,19 +7,23 @@ import { hostStyles } from '../internal/styles.ts';
  * separated from the previous block by a rule. Aligns to the page grid through
  * `--oc-section-columns` / `--oc-section-label-span` (set by `<oc-page-layout>`).
  *
- * @slot label - a heading naming the block (e.g. `<h2>Work</h2>`)
+ * @slot label - a heading naming the block (e.g. `<h2>Work</h2>`); omit with `wide`
  * @slot - content
  */
 export class OcSection extends LitElement {
   static override properties = {
-    rule: { reflect: true }
+    rule: { reflect: true },
+    wide: { type: Boolean, reflect: true }
   };
 
   declare rule: 'hairline' | 'bar' | 'none';
+  /** No label column: content spans every column (intros, heroes). */
+  declare wide: boolean;
 
   constructor() {
     super();
     this.rule = 'hairline';
+    this.wide = false;
   }
 
   static override styles = [
@@ -30,7 +34,7 @@ export class OcSection extends LitElement {
         container-type: inline-size;
         margin-top: var(--oc-space-9);
       }
-      :host(:first-child) {
+      :host(:first-of-type) {
         margin-top: 0;
       }
       .section {
@@ -66,12 +70,18 @@ export class OcSection extends LitElement {
         line-height: var(--oc-leading-snug);
         letter-spacing: 0;
       }
+      :host([wide]) .label {
+        display: none;
+      }
       @container (min-width: 40rem) {
         .label {
           grid-column: 1 / span var(--oc-section-label-span, 3);
         }
         .body {
           grid-column: calc(var(--oc-section-label-span, 3) + 1) / -1;
+        }
+        :host([wide]) .body {
+          grid-column: 1 / -1;
         }
       }
     `

@@ -131,14 +131,14 @@ export class OcGallery extends LitElement {
         letter-spacing: var(--oc-tracking-tight);
       }
       .lb-stage {
-        display: grid;
-        place-items: center;
+        position: relative;
         min-height: 0;
-        padding: var(--oc-space-5) var(--oc-margin);
       }
       .lb-stage img {
-        max-width: 100%;
-        max-height: 100%;
+        position: absolute;
+        inset: var(--oc-space-5) var(--oc-margin);
+        width: calc(100% - 2 * var(--oc-margin));
+        height: calc(100% - 2 * var(--oc-space-5));
         object-fit: contain;
       }
       .lb-nav {
@@ -229,7 +229,7 @@ export class OcGallery extends LitElement {
       >
         <div class="lb-bar">
           <span class="lb-count" aria-hidden="true"
-            >${current ? `${this.index + 1}/${images.length}` : ''}</span
+            >${current ? html`${this.index + 1}/${images.length}` : nothing}</span
           >
           <button class="lb-btn" type="button" @click=${this.close}>
             Close

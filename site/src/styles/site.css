@@ -1,0 +1,276 @@
+/*
+ * Site-level composition. Everything here is layout for content placed in the
+ * design system's slots; values come only from --oc-* tokens.
+ */
+
+main:focus {
+  outline: none;
+}
+
+/* ── Rail facts (the poster's small info column) ───────────────────────── */
+.rail-facts {
+  display: grid;
+  gap: var(--oc-space-4);
+  align-content: start;
+  margin: 0;
+  font-size: var(--oc-text-sm);
+  line-height: var(--oc-leading-snug);
+}
+
+.rail-facts p {
+  margin: 0;
+}
+
+.rail-facts oc-numeral {
+  margin-bottom: calc(-1 * var(--oc-space-2));
+}
+
+.rail-index {
+  display: grid;
+  gap: var(--oc-space-1);
+  margin: 0;
+}
+
+.rail-index a {
+  font-weight: var(--oc-weight-bold);
+  text-decoration: none;
+}
+
+.rail-index a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--oc-red);
+}
+
+.post-meta {
+  gap: var(--oc-space-3);
+}
+
+.post-meta dt {
+  color: var(--oc-ink-3);
+}
+
+.post-meta dd {
+  margin: 0;
+  font-weight: var(--oc-weight-bold);
+}
+
+/* ── Type helpers ──────────────────────────────────────────────────────── */
+.lede {
+  max-width: 26ch;
+  margin: 0;
+  font-size: var(--oc-text-2xl);
+  font-weight: var(--oc-weight-bold);
+  font-stretch: var(--oc-wdth-narrow);
+  line-height: var(--oc-leading-tight);
+  letter-spacing: var(--oc-tracking-tight);
+  text-wrap: balance;
+}
+
+.flow {
+  display: grid;
+  gap: var(--oc-space-4);
+  max-width: var(--oc-measure);
+}
+
+.flow p {
+  margin: 0;
+}
+
+.more {
+  margin: var(--oc-space-5) 0 0;
+}
+
+/* ── Home: poster hero ─────────────────────────────────────────────────── */
+.home-hero {
+  display: grid;
+  gap: var(--oc-space-8);
+}
+
+.home-poster {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--oc-gutter);
+  row-gap: var(--oc-space-3);
+}
+
+.home-poster__block {
+  grid-column: 1;
+  grid-row: 1;
+  background: var(--oc-red);
+}
+
+.home-poster__photo {
+  grid-column: 2 / -1;
+  grid-row: 1;
+}
+
+.home-poster__caption {
+  grid-column: 2 / -1;
+  margin: 0;
+  font-size: var(--oc-text-sm);
+  color: var(--oc-ink-3);
+}
+
+@media (min-width: 48rem) {
+  .home-poster {
+    grid-template-columns: repeat(
+      var(--oc-section-columns, 12),
+      minmax(0, 1fr)
+    );
+  }
+  .home-poster__block {
+    grid-column: 1 / span 2;
+  }
+  .home-poster__photo {
+    grid-column: 3 / span 5;
+  }
+  .home-poster__caption {
+    grid-column: 8 / -1;
+    grid-row: 1;
+    align-self: end;
+  }
+}
+
+/* ── Home: photo strip ─────────────────────────────────────────────────── */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--oc-gutter);
+  margin: 0;
+}
+
+@media (min-width: 40rem) {
+  .photo-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.photo-strip a {
+  display: grid;
+  gap: var(--oc-space-2);
+  font-weight: var(--oc-weight-bold);
+  text-decoration: none;
+}
+
+.photo-strip a:hover span {
+  text-decoration: underline;
+  text-decoration-color: var(--oc-red);
+  text-decoration-thickness: 2px;
+}
+
+/* ── Lists of links ────────────────────────────────────────────────────── */
+.profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: var(--oc-space-4) var(--oc-gutter);
+  margin: 0;
+}
+
+.profiles li {
+  display: grid;
+}
+
+.profiles span {
+  font-size: var(--oc-text-sm);
+  color: var(--oc-ink-3);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oc-space-2) var(--oc-space-5);
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oc-space-2);
+  margin: 0;
+}
+
+.timeline,
+.post-list {
+  margin: 0;
+}
+
+/* ── Writing ───────────────────────────────────────────────────────────── */
+.filter {
+  display: grid;
+  gap: var(--oc-space-4);
+  margin-bottom: var(--oc-space-7);
+}
+
+.filter__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oc-space-2);
+}
+
+.post-list__empty {
+  padding-block: var(--oc-space-5);
+  border-top: var(--oc-hairline) solid var(--oc-ink);
+  color: var(--oc-ink-2);
+}
+
+/* ── Post ──────────────────────────────────────────────────────────────── */
+.post__header {
+  display: grid;
+  gap: var(--oc-space-5);
+  margin-bottom: var(--oc-space-8);
+  padding-bottom: var(--oc-space-6);
+  border-bottom: var(--oc-bar) solid var(--oc-ink);
+}
+
+.post__excerpt {
+  max-width: 36ch;
+  margin: 0;
+  font-size: var(--oc-text-lg);
+  line-height: var(--oc-leading-snug);
+  color: var(--oc-ink-2);
+}
+
+.post-nav {
+  display: grid;
+  margin-top: var(--oc-space-9);
+}
+
+/* ── Photography ───────────────────────────────────────────────────────── */
+oc-section[id] {
+  scroll-margin-top: var(--oc-space-6);
+}
+
+.collection-label {
+  display: grid;
+  gap: var(--oc-space-3);
+  align-content: start;
+  font-size: var(--oc-text-sm);
+  line-height: var(--oc-leading-snug);
+}
+
+.collection-label h2 {
+  margin: 0;
+  font-size: var(--oc-text-base);
+  font-weight: var(--oc-weight-bold);
+}
+
+.collection-label p {
+  margin: 0;
+  color: var(--oc-ink-2);
+}
+
+.collection-label ul {
+  display: grid;
+  gap: var(--oc-space-1);
+  margin: 0;
+}
+
+/* ── 404 ───────────────────────────────────────────────────────────────── */
+.not-found {
+  margin-top: var(--oc-space-6);
+}
+
+/* the filter wraps the list section, so it is first of its type there */
+site-post-filter > oc-section {
+  margin-top: var(--oc-space-9);
+}

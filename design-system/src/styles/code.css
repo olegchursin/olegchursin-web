@@ -28,8 +28,24 @@
   background: var(--oc-red);
 }
 
+/* Syntax colors: ink for structure, red for literals, grey for comments. */
+:root {
+  --shiki-foreground: var(--oc-ink);
+  --shiki-background: var(--oc-paper-2);
+  --shiki-token-constant: var(--oc-ink);
+  --shiki-token-string: var(--oc-red-text);
+  --shiki-token-string-expression: var(--oc-red-text);
+  --shiki-token-comment: var(--oc-ink-3);
+  --shiki-token-keyword: var(--oc-ink);
+  --shiki-token-parameter: var(--oc-ink-2);
+  --shiki-token-function: var(--oc-ink);
+  --shiki-token-punctuation: var(--oc-ink-3);
+  --shiki-token-link: var(--oc-red-text);
+}
+
 pre.shiki {
   overflow-x: auto;
+  margin: 0;
   padding: var(--oc-space-4) var(--oc-space-5);
   background-color: var(--oc-paper-2) !important;
   border-left: var(--oc-rule) solid var(--oc-ink);
@@ -41,18 +57,12 @@ pre.shiki {
 
 pre.shiki code {
   font-family: inherit;
+  background: none;
+  padding: 0;
 }
 
-pre.shiki span {
-  color: var(--shiki-light);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) pre.shiki span {
-    color: var(--shiki-dark);
-  }
-}
-
-:root[data-theme='dark'] pre.shiki span {
-  color: var(--shiki-dark);
+/* keywords and function names carry weight instead of color */
+pre.shiki span[style*='--shiki-token-keyword'],
+pre.shiki span[style*='--shiki-token-function'] {
+  font-weight: 700;
 }

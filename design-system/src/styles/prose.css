@@ -31,6 +31,12 @@ oc-prose h2 {
   font-stretch: var(--oc-wdth-narrow);
 }
 
+oc-prose > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
 oc-prose h3 {
   margin-top: var(--oc-space-7);
   font-size: var(--oc-text-md);

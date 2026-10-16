@@ -31,7 +31,7 @@ Seven references in [`docs/public/inspiration`](docs/public/inspiration) set the
    Condensed/black for display, normal for reading, wide for small labels.
 3. **Red is rare.** Paper and ink carry the page. Red marks one thing per view: the current
    page, a block, a dot, the focus ring.
-4. **Objective images.** Photos are grayscale, square-cut and unframed; colour returns on
+4. **Objective images.** Photos are grayscale, square-cut and unframed; color returns on
    hover or focus.
 5. **Flush left, ragged right.** No centred paragraphs, no justified text, ≤ 64ch measure.
 6. **No ornament.** No rounded corners, shadows or gradients. Rules, bars, circles and squares
@@ -44,14 +44,14 @@ CSS variables cross shadow boundaries, so loading the stylesheet once themes eve
 
 | Group  | Tokens                                                                                                                                                                           |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Colour | `paper`, `paper-2`, `ink`, `ink-2`, `ink-3`, `line`, `red`, `red-text`, `on-red`                                                                                                 |
+| Color | `paper`, `paper-2`, `ink`, `ink-2`, `ink-3`, `line`, `red`, `red-text`, `on-red`                                                                                                 |
 | Type   | `font`, `font-mono`; `wdth-{condensed,narrow,normal,wide,extended}`; `weight-{regular,medium,bold,black}`; `text-{2xs…3xl,display,poster}`; `leading-*`; `tracking-*`; `measure` |
 | Space  | `space-1` (4px) … `space-11` (192px)                                                                                                                                             |
 | Grid   | `columns`, `gutter`, `margin`, `max-width`                                                                                                                                       |
 | Lines  | `hairline` (1px), `rule` (2px), `bar` (12px), `radius` (0), `focus-ring`                                                                                                         |
 | Motion | `duration-fast`, `duration`, `duration-slow`, `ease` (zeroed under reduced motion)                                                                                               |
 
-**Colour rules.** `--oc-red` (≈3.6:1 on paper) is for blocks, shapes and display type only.
+**Color rules.** `--oc-red` (≈3.6:1 on paper) is for blocks, shapes and display type only.
 Red at text sizes uses `--oc-red-text` (AA on both themes).
 
 **Themes.** Light (paper) by default; dark is the inverse (ink paper, paper ink, brighter red).
@@ -114,7 +114,7 @@ single file from `@oc/design-system/components/oc-*.ts`.
 | Do                                         | Don't                                         |
 | ------------------------------------------ | --------------------------------------------- |
 | Align to columns; leave columns empty      | Centre things to fill space                   |
-| Change size, weight or width for hierarchy | Add colour for hierarchy                      |
+| Change size, weight or width for hierarchy | Add color for hierarchy                      |
 | Use one red element per view               | Use red for body links or large text blocks   |
 | Let rules separate content                 | Box content in cards with borders and shadows |
 

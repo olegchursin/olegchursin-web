@@ -131,7 +131,7 @@ export class OcDisplay extends LitElement {
         :host([vertical]) .text.fit {
           font-size: min(
             var(--_size),
-            calc(var(--oc-vertical-extent, 80svh) / var(--_fit))
+            calc(var(--oc-vertical-extent, 62svh) / var(--_fit))
           );
         }
       }

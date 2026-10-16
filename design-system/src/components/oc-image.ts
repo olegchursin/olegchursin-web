@@ -4,7 +4,7 @@ import { focusRing, hostStyles } from '../internal/styles.ts';
 
 /**
  * `<oc-image>` — photography, presented objectively: grayscale by default,
- * full colour on hover/focus (`reveal`). `halftone` adds a printed dot screen.
+ * full color on hover/focus (`reveal`). `halftone` adds a printed dot screen.
  * Always give `width`/`height` (or `ratio`) so the frame reserves its space.
  *
  * @fires oc-image-activate - when `action` is set and the image is activated
