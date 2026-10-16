@@ -1,5 +1,7 @@
 import { html } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+// The post body becomes part of the template itself (not an unsafeHTML value), so
+// Lit SSR also renders custom elements used inside posts, e.g. the illustrations.
+import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 import type { Page } from '../types.ts';
 import { formatDate, type Post } from '../content/posts.ts';
 
@@ -49,7 +51,7 @@ export function postPage(post: Post, prev?: Post, next?: Post): Page {
           >
           <p class="post__excerpt">${post.excerpt}</p>
         </header>
-        <oc-prose>${unsafeHTML(post.html)}</oc-prose>
+        ${staticHtml`<oc-prose>${unsafeStatic(post.html)}</oc-prose>`}
       </article>
 
       <nav class="post-nav" aria-label="More writing">
