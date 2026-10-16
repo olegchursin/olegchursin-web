@@ -1,0 +1,80 @@
+html {
+  background: var(--oc-paper);
+  color: var(--oc-ink);
+  font-family: var(--oc-font);
+  font-size: 100%;
+  font-stretch: var(--oc-wdth-normal);
+  font-kerning: normal;
+  font-variant-numeric: tabular-nums;
+  scroll-padding-top: var(--oc-space-9);
+  transition:
+    background-color var(--oc-duration) var(--oc-ease),
+    color var(--oc-duration) var(--oc-ease);
+}
+
+body {
+  background: var(--oc-paper);
+  font-size: var(--oc-text-base);
+  line-height: var(--oc-leading-body);
+}
+
+::selection {
+  background: var(--oc-selection);
+  color: var(--oc-on-selection);
+}
+
+:focus-visible {
+  outline: var(--oc-focus-ring);
+  outline-offset: var(--oc-focus-offset);
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-color: var(--oc-red);
+  text-decoration-thickness: 2px;
+}
+
+/* Cross-document view transitions between pages */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--oc-duration-slow);
+  animation-timing-function: var(--oc-ease);
+}
+
+.oc-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.oc-skip-link {
+  position: absolute;
+  left: var(--oc-margin);
+  top: var(--oc-space-2);
+  z-index: var(--oc-z-dialog);
+  padding: var(--oc-space-2) var(--oc-space-4);
+  background: var(--oc-ink);
+  color: var(--oc-paper);
+  font-weight: var(--oc-weight-bold);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.oc-skip-link:focus {
+  transform: none;
+}

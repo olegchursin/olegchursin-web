@@ -1,0 +1,164 @@
+/*
+ * Running text for long-form content rendered in the light DOM (inside <oc-prose>).
+ * Flush left, ragged right, measure ≤ 64ch. Headings are bold, not big.
+ */
+oc-prose {
+  display: block;
+  max-width: var(--oc-measure);
+  font-size: var(--oc-text-base);
+  line-height: var(--oc-leading-body);
+  color: var(--oc-ink);
+  hanging-punctuation: first;
+}
+
+oc-prose > * + * {
+  margin-top: var(--oc-space-5);
+}
+
+oc-prose :is(h2, h3, h4) {
+  position: relative;
+  font-weight: var(--oc-weight-bold);
+  line-height: var(--oc-leading-snug);
+  letter-spacing: var(--oc-tracking-tight);
+  text-wrap: balance;
+}
+
+oc-prose h2 {
+  margin-top: var(--oc-space-8);
+  padding-top: var(--oc-space-4);
+  border-top: var(--oc-rule) solid var(--oc-ink);
+  font-size: var(--oc-text-xl);
+  font-stretch: var(--oc-wdth-narrow);
+}
+
+oc-prose > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+oc-prose h3 {
+  margin-top: var(--oc-space-7);
+  font-size: var(--oc-text-md);
+}
+
+oc-prose h4 {
+  margin-top: var(--oc-space-6);
+  font-size: var(--oc-text-base);
+}
+
+oc-prose :is(h2, h3, h4) + * {
+  margin-top: var(--oc-space-4);
+}
+
+/* rehype-autolink-headings anchor */
+oc-prose .anchor {
+  position: absolute;
+  inset: 0;
+  text-decoration: none;
+}
+
+oc-prose :is(h2, h3, h4):hover::before {
+  content: '#';
+  position: absolute;
+  right: 100%;
+  padding-right: var(--oc-space-2);
+  color: var(--oc-red-text);
+}
+
+oc-prose h2:hover::before {
+  top: var(--oc-space-4);
+}
+
+oc-prose p,
+oc-prose li {
+  text-wrap: pretty;
+}
+
+oc-prose a {
+  font-weight: var(--oc-weight-medium);
+  text-decoration-color: var(--oc-red);
+}
+
+oc-prose strong {
+  font-weight: var(--oc-weight-bold);
+}
+
+oc-prose em {
+  font-style: italic;
+}
+
+oc-prose :is(ul, ol) {
+  padding-left: var(--oc-space-5);
+}
+
+oc-prose ul {
+  list-style: none;
+}
+
+oc-prose ul > li {
+  position: relative;
+}
+
+oc-prose ul > li::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--oc-space-5));
+  top: 0.62em;
+  width: 0.4em;
+  height: 0.4em;
+  background: var(--oc-red);
+}
+
+oc-prose ol > li::marker {
+  font-weight: var(--oc-weight-bold);
+  color: var(--oc-red-text);
+}
+
+oc-prose li + li {
+  margin-top: var(--oc-space-2);
+}
+
+oc-prose li > :is(ul, ol) {
+  margin-top: var(--oc-space-2);
+}
+
+oc-prose blockquote {
+  padding-left: var(--oc-space-5);
+  border-left: var(--oc-bar) solid var(--oc-ink);
+  font-size: var(--oc-text-md);
+  font-weight: var(--oc-weight-medium);
+  line-height: var(--oc-leading-snug);
+}
+
+oc-prose hr {
+  height: var(--oc-bar);
+  width: var(--oc-space-9);
+  background: var(--oc-ink);
+  border: 0;
+  margin-block: var(--oc-space-8);
+}
+
+oc-prose img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(1);
+}
+
+oc-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--oc-text-sm);
+}
+
+oc-prose :is(th, td) {
+  padding: var(--oc-space-2) var(--oc-space-3) var(--oc-space-2) 0;
+  border-bottom: var(--oc-hairline) solid var(--oc-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+oc-prose th {
+  border-bottom: var(--oc-rule) solid var(--oc-ink);
+  font-weight: var(--oc-weight-bold);
+}

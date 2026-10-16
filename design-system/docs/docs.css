@@ -1,0 +1,246 @@
+/* Style-guide page layout. Uses only system tokens. */
+.rail-meta {
+  display: grid;
+  gap: var(--oc-space-4);
+  font-size: var(--oc-text-sm);
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1.4em;
+  padding: 0 0.3em;
+  border: var(--oc-hairline) solid var(--oc-ink);
+  font-family: var(--oc-font-mono);
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--oc-space-7);
+  padding-bottom: var(--oc-space-6);
+}
+
+.lede {
+  max-width: 24ch;
+  font-size: var(--oc-text-2xl);
+  font-weight: var(--oc-weight-bold);
+  font-stretch: var(--oc-wdth-narrow);
+  line-height: var(--oc-leading-tight);
+  letter-spacing: var(--oc-tracking-tight);
+  text-wrap: balance;
+}
+
+.hero-shapes {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-space-4);
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: var(--oc-space-6) var(--oc-gutter);
+  margin: 0;
+}
+
+.principles h3 {
+  margin-bottom: var(--oc-space-2);
+  font-size: var(--oc-text-md);
+  line-height: var(--oc-leading-snug);
+}
+
+.principles p,
+.note {
+  max-width: var(--oc-measure);
+  color: var(--oc-ink-2);
+}
+
+.note {
+  margin-top: var(--oc-space-5);
+  font-size: var(--oc-text-sm);
+}
+
+code {
+  font-family: var(--oc-font-mono);
+  font-size: 0.85em;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--oc-space-5) var(--oc-gutter);
+}
+
+.swatch {
+  display: grid;
+  gap: var(--oc-space-3);
+}
+
+.swatch .chip {
+  aspect-ratio: 1;
+  border: var(--oc-hairline) solid var(--oc-line);
+}
+
+.swatch figcaption,
+.sources figcaption,
+.images figcaption,
+.shapes figcaption {
+  display: grid;
+  gap: 0.1rem;
+  font-size: var(--oc-text-sm);
+  line-height: var(--oc-leading-snug);
+}
+
+.swatch figcaption code {
+  color: var(--oc-ink-3);
+}
+
+.scale-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) 4fr;
+  align-items: baseline;
+  gap: var(--oc-gutter);
+  padding-block: var(--oc-space-2);
+  border-top: var(--oc-hairline) solid var(--oc-line);
+  overflow: hidden;
+}
+
+.scale-meta {
+  display: grid;
+  font-size: var(--oc-text-sm);
+}
+
+.scale-meta code {
+  color: var(--oc-ink-3);
+}
+
+.scale-sample {
+  line-height: var(--oc-leading-solid);
+  letter-spacing: var(--oc-tracking-tight);
+  white-space: nowrap;
+}
+
+.widths {
+  display: grid;
+}
+
+.width-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) 4fr;
+  align-items: baseline;
+  gap: var(--oc-gutter);
+  border-top: var(--oc-hairline) solid var(--oc-line);
+}
+
+.width-label {
+  font-size: var(--oc-text-sm);
+  font-stretch: 100%;
+}
+
+.width-word {
+  font-size: var(--oc-text-3xl);
+  font-weight: var(--oc-weight-black);
+  line-height: 1;
+  letter-spacing: var(--oc-tracking-display);
+}
+
+.grid-demo .cell {
+  display: grid;
+  place-items: center;
+  height: 3rem;
+  background: var(--oc-paper-2);
+  border: var(--oc-hairline) solid var(--oc-line);
+  font-weight: var(--oc-weight-bold);
+}
+
+.grid-demo .cell-red {
+  background: var(--oc-red);
+  color: var(--oc-on-red);
+  border-color: var(--oc-red);
+}
+
+.grid-demo oc-grid {
+  --oc-grid-row-gap: var(--oc-space-2);
+}
+
+.shapes {
+  display: grid;
+  gap: var(--oc-space-6);
+}
+
+.shapes figure {
+  display: grid;
+  gap: var(--oc-space-3);
+  margin: 0;
+}
+
+.shape-row > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oc-space-5);
+}
+
+.stack {
+  display: grid;
+  gap: var(--oc-space-6);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oc-space-4);
+}
+
+.snippet {
+  margin-top: var(--oc-space-6);
+  padding: var(--oc-space-4);
+  overflow-x: auto;
+  background: var(--oc-paper-2);
+  border-left: var(--oc-rule) solid var(--oc-ink);
+  font-family: var(--oc-font-mono);
+  font-size: var(--oc-text-sm);
+}
+
+.row-demo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--oc-space-6);
+}
+
+.row-demo > div:first-child {
+  display: grid;
+  gap: var(--oc-space-3);
+}
+
+.numerals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--oc-space-6);
+}
+
+.images,
+.sources {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: var(--oc-space-6) var(--oc-gutter);
+}
+
+.images figure,
+.sources figure {
+  display: grid;
+  gap: var(--oc-space-3);
+  margin: 0;
+}
+
+.sources figcaption span,
+.images figcaption {
+  color: var(--oc-ink-2);
+}

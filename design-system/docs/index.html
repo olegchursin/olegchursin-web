@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OC Design System</title>
+    <meta
+      name="description"
+      content="Swiss-style design system for olegchursin.com: tokens, typography, grid and Lit web components."
+    />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('oc-theme');
+          if (t === 'light' || t === 'dark')
+            document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" src="./main.ts"></script>
+  </head>
+  <body>
+    <a class="oc-skip-link" href="#main">Skip to content</a>
+    <oc-site-header home-href="#">
+      <span slot="brand">OC Design<br />System</span>
+      <oc-nav-link href="#principles">Principles</oc-nav-link>
+      <oc-nav-link href="#foundations">Foundations</oc-nav-link>
+      <oc-nav-link href="#components">Components</oc-nav-link>
+      <oc-nav-link href="#sources">Sources</oc-nav-link>
+      <oc-theme-toggle slot="actions"></oc-theme-toggle>
+    </oc-site-header>
+
+    <main id="main">
+      <oc-page-layout>
+        <div slot="meta" class="rail-meta">
+          <p><strong>Version 1.0</strong><br />October 2026</p>
+          <p>22 components<br />Lit 3, shadow DOM</p>
+          <p>Press <kbd>g</kbd> to<br />show the grid</p>
+        </div>
+        <oc-display slot="title" as="h1" vertical fit="2.6" width="condensed"
+          >System</oc-display
+        >
+
+        <!-- Hero -->
+        <oc-section rule="none" wide>
+          <div class="hero">
+            <p class="lede">
+              A typographic system for olegchursin.com, built on the
+              International Typographic Style: a visible grid, one grotesk in
+              many widths, paper, ink and a single red.
+            </p>
+            <div class="hero-shapes" aria-hidden="true">
+              <oc-shape shape="circle" size="lg"></oc-shape>
+              <oc-rule
+                orientation="vertical"
+                weight="rule"
+                tone="red"
+                length="short"
+              ></oc-rule>
+              <oc-shape shape="square" size="md"></oc-shape>
+            </div>
+          </div>
+        </oc-section>
+
+        <!-- Principles -->
+        <oc-section id="principles">
+          <h2 slot="label">Principles</h2>
+          <ol class="principles" role="list">
+            <li>
+              <h3>The grid is the design</h3>
+              <p>
+                Twelve columns, one gutter, one margin. Everything snaps to a
+                column edge. Asymmetry comes from how many columns a thing
+                takes, never from nudging it.
+              </p>
+            </li>
+            <li>
+              <h3>Type does the work</h3>
+              <p>
+                One family, Archivo, used across its width axis: condensed and
+                black for display, normal for reading, wide for small labels.
+                Hierarchy comes from size and weight before color.
+              </p>
+            </li>
+            <li>
+              <h3>Red is rare</h3>
+              <p>
+                Paper and ink carry the page. Red marks one thing per view: the
+                current page, a block, a dot, a focus ring.
+              </p>
+            </li>
+            <li>
+              <h3>Objective images</h3>
+              <p>
+                Photographs appear in grayscale, square-cut, unframed. Color
+                returns when you ask for it by hovering or focusing.
+              </p>
+            </li>
+            <li>
+              <h3>Flush left, ragged right</h3>
+              <p>
+                Text aligns to the left edge of its column. No centred
+                paragraphs, no justified text, lines under 64 characters.
+              </p>
+            </li>
+          </ol>
+        </oc-section>
+
+        <!-- Foundations -->
+        <oc-section id="foundations" rule="bar">
+          <h2 slot="label">Color</h2>
+          <div class="swatches" id="swatches"></div>
+          <p class="note">
+            Values switch with the theme. Red at text sizes uses
+            <code>--oc-red-text</code>, which meets WCAG AA on paper and ink;
+            <code>--oc-red</code> is for blocks, shapes and display type only.
+          </p>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Type scale</h2>
+          <div class="scale" id="scale"></div>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Width axis</h2>
+          <div class="widths">
+            <div class="width-row" style="font-stretch: 62%">
+              <span class="width-label">62 condensed</span
+              ><span class="width-word">Grid</span>
+            </div>
+            <div class="width-row" style="font-stretch: 78%">
+              <span class="width-label">78 narrow</span
+              ><span class="width-word">Grid</span>
+            </div>
+            <div class="width-row" style="font-stretch: 100%">
+              <span class="width-label">100 normal</span
+              ><span class="width-word">Grid</span>
+            </div>
+            <div class="width-row" style="font-stretch: 112%">
+              <span class="width-label">112 wide</span
+              ><span class="width-word">Grid</span>
+            </div>
+            <div class="width-row" style="font-stretch: 125%">
+              <span class="width-label">125 extended</span
+              ><span class="width-word">Grid</span>
+            </div>
+          </div>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Grid</h2>
+          <div class="grid-demo" aria-hidden="true">
+            <oc-grid>
+              <oc-cell span="4" span-md="12"
+                ><div class="cell">12</div></oc-cell
+              >
+              <oc-cell span="4" span-md="8"><div class="cell">8</div></oc-cell>
+              <oc-cell span="4" span-md="4"><div class="cell">4</div></oc-cell>
+              <oc-cell span="2" span-md="3"><div class="cell">3</div></oc-cell>
+              <oc-cell span="2" span-md="9"
+                ><div class="cell cell-red">9</div></oc-cell
+              >
+              <oc-cell span="2" span-md="6"><div class="cell">6</div></oc-cell>
+              <oc-cell span="2" span-md="6"><div class="cell">6</div></oc-cell>
+            </oc-grid>
+          </div>
+          <p class="note">
+            12 columns from 48rem, 4 below. Gutter <code>--oc-gutter</code>,
+            margin <code>--oc-margin</code>. Pages use
+            <code>&lt;oc-page-layout&gt;</code>: a 3-column rail for the
+            vertical title, 9 columns for content.
+          </p>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Rules &amp; shapes</h2>
+          <div class="shapes">
+            <figure>
+              <oc-rule></oc-rule>
+              <figcaption>Hairline: separates rows</figcaption>
+            </figure>
+            <figure>
+              <oc-rule weight="rule"></oc-rule>
+              <figcaption>Rule: divides headings</figcaption>
+            </figure>
+            <figure>
+              <oc-rule weight="bar" length="short"></oc-rule>
+              <figcaption>Bar: anchors a block</figcaption>
+            </figure>
+            <figure class="shape-row">
+              <div>
+                <oc-shape shape="circle" size="lg"></oc-shape>
+                <oc-shape shape="square" size="lg"></oc-shape>
+                <oc-shape shape="square" size="lg" tone="red"></oc-shape>
+                <oc-shape shape="dot" tone="red"></oc-shape>
+                <oc-shape shape="bar"></oc-shape>
+              </div>
+              <figcaption>Circle, square, block, dot, bar</figcaption>
+            </figure>
+          </div>
+        </oc-section>
+
+        <!-- Components -->
+        <oc-section id="components" rule="bar">
+          <h2 slot="label">Display</h2>
+          <div class="stack">
+            <oc-display as="p" size="poster" width="condensed"
+              >Swiss</oc-display
+            >
+            <oc-display as="p" size="3xl" width="extended">Minimal</oc-display>
+            <oc-display as="p" size="2xl" weight="bold" width="narrow"
+              >A guide to grids, clarity and order</oc-display
+            >
+          </div>
+          <pre
+            class="snippet"
+          ><code>&lt;oc-display as="h1" size="poster" width="condensed"&gt;Swiss&lt;/oc-display&gt;
+&lt;oc-display as="h1" vertical fit="5"&gt;Work&lt;/oc-display&gt;</code></pre>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Eyebrow &amp; numeral</h2>
+          <div class="row-demo">
+            <div>
+              <oc-eyebrow>Photography</oc-eyebrow>
+              <oc-eyebrow tone="ink">Writing</oc-eyebrow>
+              <oc-eyebrow caps>Typography</oc-eyebrow>
+            </div>
+            <div class="numerals">
+              <oc-numeral size="xl">2012–</oc-numeral>
+              <oc-numeral>12.5.–30.8.</oc-numeral>
+              <oc-numeral size="md" tone="red">16</oc-numeral>
+            </div>
+          </div>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Links &amp; buttons</h2>
+          <div class="stack">
+            <p>
+              Inline links read like
+              <oc-link href="#components">this one</oc-link>; outbound links
+              like
+              <oc-link href="https://unsplash.com/@olegchursin_photo"
+                >Unsplash</oc-link
+              >
+              carry an arrow and open in a new tab.
+            </p>
+            <p class="cluster">
+              <oc-link variant="strong" href="https://github.com/olegchursin"
+                >GitHub</oc-link
+              >
+              <oc-link variant="plain" href="#principles">Plain link</oc-link>
+            </p>
+            <div class="cluster">
+              <oc-button>Save changes</oc-button>
+              <oc-button tone="red">Publish</oc-button>
+              <oc-button variant="outline">Cancel</oc-button>
+              <oc-button variant="ghost">Skip</oc-button>
+              <oc-button size="sm" variant="outline">Small</oc-button>
+              <oc-button size="lg">Large</oc-button>
+              <oc-button disabled>Disabled</oc-button>
+            </div>
+          </div>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Tags</h2>
+          <div class="cluster" id="tag-demo">
+            <oc-tag>Static</oc-tag>
+            <oc-tag href="#components">Link</oc-tag>
+            <oc-tag toggle>Git</oc-tag>
+            <oc-tag toggle pressed>AWS</oc-tag>
+            <oc-tag toggle>Agile</oc-tag>
+          </div>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Entry</h2>
+          <div>
+            <oc-entry href="https://www.aon.com/cyber-solutions/">
+              <span slot="meta">2022–now</span>
+              <h3>Senior Software Developer</h3>
+              <span slot="detail"
+                >Cyber insurance tools: quoting, risk evaluation,
+                reporting.</span
+              >
+              <span slot="aside">Aon Cyber Solutions</span>
+            </oc-entry>
+            <oc-entry href="#components">
+              <span slot="meta">Oct 2022</span>
+              <h3>Communicate risk with commits</h3>
+              <span slot="aside">Git, 4 min</span>
+            </oc-entry>
+            <oc-entry>
+              <span slot="meta">2012–2018</span>
+              <h3>Web Developer and Founder</h3>
+              <span slot="aside">Human Interaction</span>
+            </oc-entry>
+          </div>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Post card</h2>
+          <oc-post-card href="#components">
+            <span slot="meta">19 October 2022, 4 min read</span>
+            <h3>Communicate risk with commits</h3>
+            <span slot="excerpt"
+              >Clean, prefixed commit messages that tell reviewers how risky a
+              change is.</span
+            >
+            <oc-tag slot="aside">Git</oc-tag>
+          </oc-post-card>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Search</h2>
+          <oc-search placeholder="Title or tag" id="search-demo">
+            <span slot="label">Filter posts</span>
+            <span slot="status" id="search-status">5 posts</span>
+          </oc-search>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Image</h2>
+          <div class="images">
+            <figure>
+              <oc-image
+                src="https://ik.imagekit.io/olegchursin/park-slope_-pY7uwDVs.png?tr=w-800,h-500"
+                alt="Brownstones in Park Slope, Brooklyn"
+                width="800"
+                height="500"
+                ratio="8/5"
+              ></oc-image>
+              <figcaption>Grayscale, color on hover</figcaption>
+            </figure>
+            <figure>
+              <oc-image
+                src="https://ik.imagekit.io/olegchursin/park-slope_-pY7uwDVs.png?tr=w-800,h-500"
+                alt="Brownstones in Park Slope, Brooklyn"
+                width="800"
+                height="500"
+                ratio="8/5"
+                treatment="halftone"
+              ></oc-image>
+              <figcaption>Halftone screen</figcaption>
+            </figure>
+          </div>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Gallery</h2>
+          <oc-gallery label="Travel" id="gallery-demo"></oc-gallery>
+        </oc-section>
+
+        <oc-section>
+          <h2 slot="label">Prose</h2>
+          <oc-prose>
+            <p>
+              Long-form text sits in <code>&lt;oc-prose&gt;</code>, in the light
+              DOM, so it stays plain HTML. Paragraphs are set at 17px with
+              generous leading and a 64-character measure.
+            </p>
+            <h2>Second-level heading</h2>
+            <p>
+              Headings are bold rather than big, introduced by a two-pixel rule.
+            </p>
+            <ul>
+              <li>List items hang on a small red square.</li>
+              <li>Ordered lists use red bold numerals.</li>
+            </ul>
+            <blockquote>Less, but better.</blockquote>
+          </oc-prose>
+        </oc-section>
+      </oc-page-layout>
+
+      <oc-page-layout>
+        <oc-section id="sources" rule="bar">
+          <h2 slot="label">Sources</h2>
+          <div class="sources" id="sources-grid"></div>
+        </oc-section>
+      </oc-page-layout>
+    </main>
+
+    <oc-site-footer>
+      <span>Set in Archivo and JetBrains Mono. Components built with Lit.</span>
+      <span slot="links"
+        ><oc-link variant="strong" href="https://lit.dev/docs/"
+          >Lit docs</oc-link
+        ></span
+      >
+      <span slot="meta">OC 2026</span>
+    </oc-site-footer>
+    <oc-grid-overlay></oc-grid-overlay>
+  </body>
+</html>
