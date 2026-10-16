@@ -1,0 +1,141 @@
+/*
+ * OC Design System — tokens
+ * International Typographic Style: paper, ink, one red. Grid first. Type does the work.
+ * Every value a component uses must come from here.
+ */
+
+:root {
+  /* ── Color: light (paper) ─────────────────────────────── */
+  --oc-paper: #edece8; /* page */
+  --oc-paper-2: #e3e2dd; /* recessed surface, code, image placeholders */
+  --oc-ink: #000000; /* text, rules, solid shapes */
+  --oc-ink-2: #3b3b39; /* secondary text */
+  --oc-ink-3: #686763; /* meta text — AA on paper */
+  --oc-line: rgb(0 0 0 / 0.16); /* hairlines, grid guides */
+  --oc-red: #e8321e; /* blocks, dots, large type only (3:1) */
+  --oc-red-text: #c22612; /* red at text sizes — AA on paper */
+  --oc-on-red: #ffffff;
+  --oc-selection: #e8321e;
+  --oc-on-selection: #ffffff;
+  color-scheme: light;
+
+  /* ── Type ─────────────────────────────────────────────── */
+  --oc-font:
+    'Archivo Variable', 'Archivo', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  --oc-font-mono:
+    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo,
+    monospace;
+
+  /* width axis (font-stretch) — the system's main expressive lever */
+  --oc-wdth-condensed: 62%;
+  --oc-wdth-narrow: 78%;
+  --oc-wdth-normal: 100%;
+  --oc-wdth-wide: 112%;
+  --oc-wdth-extended: 125%;
+
+  --oc-weight-regular: 400;
+  --oc-weight-medium: 500;
+  --oc-weight-bold: 700;
+  --oc-weight-black: 900;
+
+  /* scale — classic typographic steps (6‥72pt), fluid at the top */
+  --oc-text-2xs: 0.6875rem; /* 11 */
+  --oc-text-xs: 0.75rem; /* 12 */
+  --oc-text-sm: 0.875rem; /* 14 */
+  --oc-text-base: 1.0625rem; /* 17 — body */
+  --oc-text-md: 1.3125rem; /* 21 */
+  --oc-text-lg: clamp(1.3125rem, 1rem + 1vw, 1.5rem); /* 21→24 */
+  --oc-text-xl: clamp(1.5rem, 1rem + 2vw, 2.25rem); /* 24→36 */
+  --oc-text-2xl: clamp(2rem, 1rem + 3.5vw, 3.75rem); /* 32→60 */
+  --oc-text-3xl: clamp(2.75rem, 1rem + 6vw, 5.5rem); /* 44→88 */
+  --oc-text-display: clamp(4rem, 1rem + 11vw, 12rem); /* 64→192 */
+  --oc-text-poster: clamp(5rem, 2rem + 16vw, 20rem); /* 80→320 */
+
+  --oc-leading-solid: 0.82;
+  --oc-leading-tight: 1.05;
+  --oc-leading-snug: 1.25;
+  --oc-leading-body: 1.55;
+
+  --oc-tracking-display: -0.045em;
+  --oc-tracking-tight: -0.02em;
+  --oc-tracking-normal: 0;
+  --oc-tracking-label: 0.04em;
+
+  --oc-measure: 64ch; /* max line length for running text */
+
+  /* ── Space (4px base) ─────────────────────────────────── */
+  --oc-space-1: 0.25rem;
+  --oc-space-2: 0.5rem;
+  --oc-space-3: 0.75rem;
+  --oc-space-4: 1rem;
+  --oc-space-5: 1.5rem;
+  --oc-space-6: 2rem;
+  --oc-space-7: 3rem;
+  --oc-space-8: 4rem;
+  --oc-space-9: 6rem;
+  --oc-space-10: 8rem;
+  --oc-space-11: 12rem;
+
+  /* ── Grid ─────────────────────────────────────────────── */
+  --oc-columns: 12;
+  --oc-gutter: clamp(1rem, 0.5rem + 1.5vw, 2rem);
+  --oc-margin: clamp(1rem, 0.25rem + 3.5vw, 4rem);
+  --oc-max-width: 120rem;
+
+  /* ── Lines & shapes ───────────────────────────────────── */
+  --oc-hairline: 1px;
+  --oc-rule: 2px;
+  --oc-bar: 0.75rem; /* the thick black bar */
+  --oc-radius: 0; /* there are no rounded corners, by design */
+  --oc-focus-ring: 3px solid var(--oc-red);
+  --oc-focus-offset: 3px;
+
+  /* ── Motion ───────────────────────────────────────────── */
+  --oc-duration-fast: 120ms;
+  --oc-duration: 200ms;
+  --oc-duration-slow: 420ms;
+  --oc-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ── Layers ───────────────────────────────────────────── */
+  --oc-z-header: 10;
+  --oc-z-overlay: 100;
+  --oc-z-dialog: 1000;
+}
+
+/* ── Color: dark (inverted ink) ─────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --oc-paper: #000000;
+    --oc-paper-2: #161615;
+    --oc-ink: #edece8;
+    --oc-ink-2: #c4c3be;
+    --oc-ink-3: #939290;
+    --oc-line: rgb(237 236 232 / 0.18);
+    --oc-red: #ff4530;
+    --oc-red-text: #ff6a57;
+    --oc-on-red: #000000;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --oc-paper: #000000;
+  --oc-paper-2: #161615;
+  --oc-ink: #edece8;
+  --oc-ink-2: #c4c3be;
+  --oc-ink-3: #939290;
+  --oc-line: rgb(237 236 232 / 0.18);
+  --oc-red: #ff4530;
+  --oc-red-text: #ff6a57;
+  --oc-on-red: #000000;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --oc-duration-fast: 0ms;
+    --oc-duration: 0ms;
+    --oc-duration-slow: 0ms;
+  }
+}

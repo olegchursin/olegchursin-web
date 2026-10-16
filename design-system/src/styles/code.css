@@ -1,0 +1,58 @@
+/* Inline code and Shiki-highlighted blocks (dual theme via CSS variables). */
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+  background: var(--oc-paper-2);
+  font-family: var(--oc-font-mono);
+  font-size: 0.88em;
+}
+
+.oc-code {
+  margin-block: var(--oc-space-6);
+}
+
+.oc-code__title {
+  display: flex;
+  align-items: center;
+  gap: var(--oc-space-2);
+  padding: var(--oc-space-2) var(--oc-space-4);
+  background: var(--oc-ink);
+  color: var(--oc-paper);
+  font-family: var(--oc-font-mono);
+  font-size: var(--oc-text-xs);
+}
+
+.oc-code__title::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--oc-red);
+}
+
+pre.shiki {
+  overflow-x: auto;
+  padding: var(--oc-space-4) var(--oc-space-5);
+  background-color: var(--oc-paper-2) !important;
+  border-left: var(--oc-rule) solid var(--oc-ink);
+  font-family: var(--oc-font-mono);
+  font-size: var(--oc-text-sm);
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+pre.shiki code {
+  font-family: inherit;
+}
+
+pre.shiki span {
+  color: var(--shiki-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) pre.shiki span {
+    color: var(--shiki-dark);
+  }
+}
+
+:root[data-theme='dark'] pre.shiki span {
+  color: var(--shiki-dark);
+}

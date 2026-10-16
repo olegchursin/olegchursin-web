@@ -1,0 +1,91 @@
+---
+title: Native datetime formatter
+excerpt: Simple native datetime formatter with Intl.DateTimeFormat
+coverImage: /blog/risk-commits.jpeg
+publishedAt: '2020-03-16 05:35 +0000'
+tags: Intl
+author:
+  name: Oleg Chursin
+  picture: /blog/authors/jj.jpeg
+ogImage: /blog/risk-commits.jpeg
+---
+
+## The simpler the better
+
+Here's a dead simple date formatter snippet that works in all modern browsers as well as node apps.
+
+```js:formatter.js
+// define formatter
+const locale = 'en-US';
+const options = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit'
+};
+const formatter = new Intl.DateTimeFormat(locale, options);
+
+// use
+const date = new Date();
+const formattedDate = formatter.format(date);
+```
+
+What's going on above? We grab the current date with `new Date()`, instantiate the formatter with `Intl.DateTimeFormat` providing the locale string and date format options object.
+
+## Types for the win
+
+```ts:formatter.ts
+// define formatter
+const locales: string | string[] = 'en-US';
+const options: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit'
+};
+const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat(
+  locales,
+  options
+);
+
+// use
+const date = new Date();
+const formattedDate = formatter.format(date);
+```
+
+## Playground
+
+```ts:datetime-format.ts
+const date = new Date();
+const locales = ['en-US', 'en-GB', 'en-CA'];
+const options = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit'
+};
+
+for (const locale of locales) {
+  const formatter = new Intl.DateTimeFormat(locale, options);
+  const formattedDate = formatter.format(date);
+  console.log(`formattedDate: ${locale} -->`, formattedDate);
+}
+```
+
+Running it in node will produce the following result:
+
+```bash
+~/dev/node-playground » node datetime-format.js
+formattedDate: en-US --> Dec 16, 2021, 2:28 AM
+formattedDate: en-GB --> 16 Dec 2021, 2:28
+formattedDate: en-CA --> Dec. 16, 2021, 2:28 a.m.
+```
+
+Sweet. No deps. Just using the platform.
+
+---
+
+More info on MDN: [DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)
