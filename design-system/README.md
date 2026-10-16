@@ -44,7 +44,7 @@ CSS variables cross shadow boundaries, so loading the stylesheet once themes eve
 
 | Group  | Tokens                                                                                                                                                                           |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Color | `paper`, `paper-2`, `ink`, `ink-2`, `ink-3`, `line`, `red`, `red-text`, `on-red`                                                                                                 |
+| Color  | `paper`, `paper-2`, `ink`, `ink-2`, `ink-3`, `line`, `red`, `red-text`, `on-red`                                                                                                 |
 | Type   | `font`, `font-mono`; `wdth-{condensed,narrow,normal,wide,extended}`; `weight-{regular,medium,bold,black}`; `text-{2xs…3xl,display,poster}`; `leading-*`; `tracking-*`; `measure` |
 | Space  | `space-1` (4px) … `space-11` (192px)                                                                                                                                             |
 | Grid   | `columns`, `gutter`, `margin`, `max-width`                                                                                                                                       |
@@ -82,7 +82,7 @@ single file from `@oc/design-system/components/oc-*.ts`.
 | `oc-numeral`          | Real numbers as graphics (years, dates, counts)    | `size`, `tone`                                                                    |
 | `oc-rule`             | Hairline / rule / bar                              | `weight`, `tone`, `orientation`, `length`, `semantic`                             |
 | `oc-shape`            | Circle, square, dot, bar, block                    | `shape`, `tone`, `size`, `--oc-shape-size`                                        |
-| `oc-link`             | Links; external ones get ↗ and a new tab           | `href`, `variant="inline\|plain\|strong"`, `external`                             |
+| `oc-link`             | Links; external ones get an arrow and a new tab    | `href`, `variant="inline\|plain\|strong"`, `external`                             |
 | `oc-button`           | Actions (or links styled as actions)               | `variant`, `tone`, `size`, `href`, `disabled`, `label`                            |
 | `oc-tag`              | Category label, link or filter toggle              | `href`, `toggle`, `pressed`, `value`; `oc-tag-toggle`                             |
 | `oc-site-header`      | Wordmark + nav; menu panel below 48rem             | slots `brand`, default, `actions`; `open`                                         |
@@ -114,7 +114,7 @@ single file from `@oc/design-system/components/oc-*.ts`.
 | Do                                         | Don't                                         |
 | ------------------------------------------ | --------------------------------------------- |
 | Align to columns; leave columns empty      | Centre things to fill space                   |
-| Change size, weight or width for hierarchy | Add color for hierarchy                      |
+| Change size, weight or width for hierarchy | Add color for hierarchy                       |
 | Use one red element per view               | Use red for body links or large text blocks   |
 | Let rules separate content                 | Box content in cards with borders and shadows |
 
