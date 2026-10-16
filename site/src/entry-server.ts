@@ -7,6 +7,7 @@ import { collectResult } from '@lit-labs/ssr/lib/render-result.js';
 import { themeInitScript } from '@oc/design-system/theme-init';
 import '@oc/design-system';
 import './components/site-post-filter.ts';
+import './components/illustrations/index.ts';
 import { shell } from './layout.ts';
 import { site } from './data/site.ts';
 import { getPosts } from './content/posts.ts';
