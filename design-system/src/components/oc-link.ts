@@ -1,10 +1,11 @@
 import { LitElement, css, html, nothing } from 'lit';
 import { define } from '../internal/define.ts';
 import { isExternal } from '../internal/links.ts';
+import { arrowOut } from '../internal/icons.ts';
 import { focusRing, hostStyles, visuallyHidden } from '../internal/styles.ts';
 
 /**
- * `<oc-link>` — a link. External URLs open in a new tab and carry a ↗ (the arrow is
+ * `<oc-link>` — a link. External URLs open in a new tab and carry an outbound arrow (it is
  * information: you are leaving the site), plus a hidden "(opens in new tab)" note.
  *
  * Variants: `inline` (underlined, in running text), `plain` (no underline until hover),
@@ -70,10 +71,12 @@ export class OcLink extends LitElement {
       }
       .arrow {
         display: inline-block;
-        margin-inline-start: 0.15em;
         /* information, not display: stays text-sized inside large type */
-        font-size: min(1em, 1.125rem);
-        font-weight: var(--oc-weight-regular);
+        width: min(0.62em, 0.7rem);
+        height: min(0.62em, 0.7rem);
+        margin-inline-start: 0.2em;
+        vertical-align: baseline;
+        overflow: visible;
         transition: transform var(--oc-duration-fast) var(--oc-ease);
       }
       a:hover .arrow {
@@ -95,12 +98,11 @@ export class OcLink extends LitElement {
       target=${out ? '_blank' : nothing}
       rel=${out ? 'noopener noreferrer' : nothing}
       download=${this.download ?? nothing}
-      ><slot></slot>${
-        out
-          ? html`<span class="arrow" aria-hidden="true">↗</span
-              ><span class="visually-hidden"> (opens in new tab)</span>`
-          : nothing
-      }</a
+      ><slot></slot>${out
+        ? html`${arrowOut}<span class="visually-hidden">
+              (opens in new tab)</span
+            >`
+        : nothing}</a
     >`;
   }
 }

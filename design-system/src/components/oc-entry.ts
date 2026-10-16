@@ -1,6 +1,7 @@
 import { LitElement, css, html, nothing } from 'lit';
 import { define } from '../internal/define.ts';
 import { isExternal } from '../internal/links.ts';
+import { arrowOut } from '../internal/icons.ts';
 import { focusRing, hostStyles, visuallyHidden } from '../internal/styles.ts';
 
 /**
@@ -117,7 +118,12 @@ export class OcEntry extends LitElement {
         color: var(--oc-ink-2);
       }
       .arrow {
-        margin-inline-start: 0.2em;
+        display: inline-block;
+        width: 0.62em;
+        height: 0.62em;
+        margin-inline-start: 0.25em;
+        vertical-align: baseline;
+        overflow: visible;
       }
       @container (min-width: 36rem) {
         .row {
@@ -142,11 +148,9 @@ export class OcEntry extends LitElement {
           part="link"
           target=${out ? '_blank' : nothing}
           rel=${out ? 'noopener noreferrer' : nothing}
-          ><slot></slot>${
-            out
-              ? html`<span class="visually-hidden"> (opens in new tab)</span>`
-              : nothing
-          }</a
+          ><slot></slot>${out
+            ? html`<span class="visually-hidden"> (opens in new tab)</span>`
+            : nothing}</a
         >`
       : html`<slot></slot>`;
     return html`<div class="row" part="row">
@@ -158,9 +162,7 @@ export class OcEntry extends LitElement {
         <div class="detail"><slot name="detail"></slot></div>
       </div>
       <div class="aside">
-        <slot name="aside"></slot>${
-          out ? html`<span class="arrow" aria-hidden="true">↗</span>` : nothing
-        }
+        <slot name="aside"></slot>${out ? arrowOut : nothing}
       </div>
     </div>`;
   }
